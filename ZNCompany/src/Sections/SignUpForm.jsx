@@ -3,7 +3,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoKeyOutline } from "react-icons/io5";
 import Button from '../Components/Button';
 import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth } from '../assets/Constants'
+import { dynamicHieght, dynamicWidth } from '../Constants'
 import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
 import { IoPersonOutline } from "react-icons/io5";
 import { FiPhone } from "react-icons/fi";

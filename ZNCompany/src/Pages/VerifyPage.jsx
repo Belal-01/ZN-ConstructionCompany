@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Navbar from '../Sections/Navbar'
 import Button from '../Components/Button';
 import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth } from '../assets/Constants'
+import { dynamicHieght, dynamicWidth } from '../Constants'
 import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
 const VerifyPage = () => {
 const [erorrModle,setErorrModle] = useState(false);

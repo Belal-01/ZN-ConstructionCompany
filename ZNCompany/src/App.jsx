@@ -2,7 +2,7 @@ import './App.css'
 
 import Register from './Pages/LogInPage'
 import { useState ,useEffect, createContext } from 'react'
-import { dynamicHieght,dynamicWidth } from './assets/Constants'
+import { dynamicHieght,dynamicWidth } from './Constants'
 import Navbar from './Sections/Navbar'
 import SignUpPage from './Pages/SignUpPage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -11,6 +11,8 @@ import SignUpForm from './Sections/SignUpForm'
 import ChangePassWordForm from './Sections/ChangePassWordForm'
 import VerifyPage from './Pages/VerifyPage'
 import Profile from './Pages/Profile'
+import LandingPage from './Pages/LandingPage'
+import Header from './Sections/Header'
 export const  CurrentWindowWidth = createContext()
 export const CurrentWindowHeight = createContext()
 
@@ -28,12 +30,13 @@ window.addEventListener('resize',()=>{
   return (
 
     <>
+    <Header />
     <CurrentWindowHeight.Provider value={windowHeight}>
       <CurrentWindowWidth.Provider value={windowWidth}>
         <BrowserRouter>
           <Routes>
           
-            <Route path='/' element={<Profile />} />
+            <Route path='/' element={<LandingPage />} />
             {/* <Route path='/signInPage' element={<SignUpPage />}>
               <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
               <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />

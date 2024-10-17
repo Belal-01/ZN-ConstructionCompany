@@ -31,6 +31,28 @@ a{
     -webkit-appearance: none; /* Chrome, Safari */
     margin: 0;
 }
+
+.menu-container{
+ max-height: 0px;
+  transition: max-height .4s ease-in;
+}
+.menu-container-show{
+  max-height: 500px;
+}
+
+.header-menu{
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+.header-menu-show{
+  visibility: visible;
+  opacity: 1;
+}
+.imgSlider::-webkit-scrollbar{
+display: none;
+}
+
 @layer utilities{
   *{
     font-family: Lato;
