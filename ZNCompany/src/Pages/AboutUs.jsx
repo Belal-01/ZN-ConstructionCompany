@@ -40,7 +40,7 @@ const AboutUs = () => {
         </div>
         <div className="about-video px-11 w-full py-10 ">
           <video className=' w-full ' poster='/imgs/videoPoster.png' preload='none' controls>
-            <source src='/video/landingVideo.mp4' type='video/mp4'/>
+            <source src='/video/landingPageVideo.mp4' type='video/mp4'/>
           </video>
         </div>
 
