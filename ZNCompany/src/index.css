@@ -132,7 +132,7 @@ display: none;
 
  }
  .zn-button{
-  @apply md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[100px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
+  @apply md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
  }
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 ;

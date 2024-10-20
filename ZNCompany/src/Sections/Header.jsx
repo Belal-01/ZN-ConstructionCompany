@@ -71,16 +71,16 @@ const Header = () => {
       </NavLink>
 
     </div>
-    <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-4">
+    <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3">
     <div className="relative">
-          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-[80px] pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
+          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-[70px] pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
           <IoSearch className='absolute top-1.5 left-1.5 ' />
     </div>
       <div className="menu flex flex-row items-center gap-x-3 relative">
         <span className='flex flex-col justify-between cursor-pointer min-h-6' onClick={()=>setShowMenu(prev=>!prev)}> 
-          <div className={classNames('w-10 sm:h-[4px] h-[3px] bg-zn-white rounded-full topMenu-icon')}></div>
-          <div className={classNames('w-6 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
-          <div className={classNames('w-10 sm:h-[4px] h-[3px] bg-zn-white rounded-full bottomMenu-icon')}></div>
+          <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full topMenu-icon')}></div>
+          <div className={classNames('sm:w-6 w-5 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
+          <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full bottomMenu-icon')}></div>
         </span>
         <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>MENU</span>
        
