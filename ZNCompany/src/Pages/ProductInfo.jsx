@@ -83,7 +83,7 @@ const ProductInfo = () => {
           </div>
 
         </div>
-        <div className="product-details sm:ml-[95px] ml-8 mt-10 max-sm:mt-8 max-sm:pr-3 text-pretty 2xl:w-[950px] xl:w-[850px]  md:w-[700px] sm:w-[500px] w-[350px]">
+        <div className="product-details sm:ml-[95px] ml-8 mt-10 max-sm:mt-8 max-sm:pr-2 text-pretty 2xl:w-[950px] xl:w-[850px]  md:w-[700px] sm:w-[500px] w-[340px]">
           <div className='phrass pb-6'>
                 <h2 className='zn-body-0-bold py-4'>PRODUCT DESCRIPTION</h2>
                 <p className='zn-body-1'>
