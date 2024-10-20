@@ -96,7 +96,7 @@ display: none;
 
 
 .zn-body-1{
- @apply font-Inter  2xl:text-[28px] lg:text-[18px] md:text-[14px] text-[10px] font-medium 2xl:leading-[33px] lg:leading-[22px] md:leading-[16px] leading-[10px] ;
+ @apply font-Inter  2xl:text-[28px] lg:text-[20px] md:text-[18px] text-[16px] font-medium 2xl:leading-[33px] lg:leading-[22px] md:leading-[20px] leading-[18px] ;
 }
 .zn-body-2{
   @apply font-Inter 2xl:text-[20px] lg:text-[14px] text-[11px]  font-medium 2xl:leading-[24px] lg:leading-[18px] md:leading-[15px] leading-[12px];
@@ -107,11 +107,11 @@ display: none;
    
  }
 .zn-body-0-bold{
-  @apply font-Inter 2xl:text-[36px] lg:text-[20px] md:text-[17px] text-[12] font-bold 2xl:leading-[43px] lg:leading-[26px] md:leading-[16px] leading-[10px] align-middle;
+  @apply font-Inter 2xl:text-[36px] lg:text-[20px] md:text-[20px] text-[20px] font-bold 2xl:leading-[43px] lg:leading-[26px] md:leading-[24px] leading-[20px] align-middle;
    
  }
 .zn-body-1-bold{
- @apply 2xl:text-[28px] lg:text-[18px]  text-[18px] font-bold 2xl:leading-[33px] lg:leading-[22px] md:leading-[22px] leading-[20px];
+ @apply 2xl:text-[28px] lg:text-[18px] text-[18px] font-bold 2xl:leading-[33px] lg:leading-[22px] md:leading-[22px] leading-[20px];
   
 }
 
@@ -132,7 +132,7 @@ display: none;
 
  }
  .zn-button{
-  @apply md:py-2 py-3 md:px-9 sm:px-6 px-4 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
+  @apply md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[100px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
  }
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 ;

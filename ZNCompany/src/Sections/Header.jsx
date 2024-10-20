@@ -71,7 +71,7 @@ const Header = () => {
       </NavLink>
 
     </div>
-    <div className="right-section  flex-auto flex flex-row justify-around items-center w-[400px] max-sm:px-4">
+    <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-4">
     <div className="relative">
           <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-[80px] pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
           <IoSearch className='absolute top-1.5 left-1.5 ' />

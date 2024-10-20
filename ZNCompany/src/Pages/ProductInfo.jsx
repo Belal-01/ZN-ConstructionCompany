@@ -21,14 +21,20 @@ const ProductInfo = () => {
   return (
     <div className='productInfo flex flex-col pb-[150px]'> 
        <div className="overflow-hidden profileImg  2xl:h-[250px] h-[197px]" >
-          <img src="/imgs/productInfobg.png" alt="Seaview" className='h-full w-full object-cover'/>
+          <img src="/imgs/productInfobg.png" alt="Seaview" className='h-full w-full object-cover' loading='lazy'/>
         </div>
        <div className='flex-1'>
         <div className={`service-title 2xl:h-[100px] sm:h-[60px] h-[60px]  bg-zn-blue  flex flex-row justify-center items-center`} >
-          <div className='w-[500px] relative'>
-            <div className='absolute -top-[150px] left-14 flex flex-col gap-y-2 w-[400px]'>
-              <div className='productImg w-full h-[320px] relative'>
-                <img src={img} alt="productImg" className='w-full h-full'/> 
+          <div className='lg:w-[500px] md:w-[450px] sm:w-[400px] relative'>
+          
+          </div>
+          <h1 className='flex-1 zn-h-3 lg:pl-10 text-center text-zn-white'>PRODUCT CODE : 11173102</h1>
+        </div>
+        <div className='body flex sm:flex-row flex-col max-sm:items-center min-h-[300px]'>
+          <div className='lg:w-[500px] md:w-[450px] sm:w-[400px] max-sm:pt-4 relative'>
+          <div className='sm:absolute sm:-top-[200px] lg:left-14 left-8 flex flex-col gap-y-2 md:w-[400px] w-[350px]'>
+              <div className='productImg w-full md:h-[320px] h-[300px] relative'>
+                <img src={img} alt="productImg" className='w-full h-full' loading='lazy'/> 
                 <div className="slid-info flex flex-col absolute bottom-3 right-3">
                   <span className='zn-body-1-bold bg-zn-green-light p-2 rounded-full cursor-pointer'
                   onClick={()=>setFillHeart(prev=>!prev)}>
@@ -39,25 +45,21 @@ const ProductInfo = () => {
               </div>
               <div className='flex flex-row gap-x-2 w-full'>
               <div className='productImg flex-1 h-[130px] relative'>
-                <img src='/imgs/floor-1.png' alt="productImg" className='w-full h-full'/>      
+                <img src='/imgs/floor-1.png' alt="productImg" className='w-full h-full' loading='lazy'/>      
               </div>
               <div className='productImg flex-1 h-[130px] relative'>
-                <img src='/imgs/productInfoImg-2.png' alt="productImg" className='w-full h-full'/>      
+                <img src='/imgs/productInfoImg-2.png' alt="productImg" className='w-full h-full' loading='lazy'/>      
               </div>
               <div className='productImg flex-1 h-[130px] relative'>
-                <img src='/imgs/productInfoImg-3.png' alt="productImg" className='w-full h-full'/>      
+                <img src='/imgs/productInfoImg-3.png' alt="productImg" className='w-full h-full' loading='lazy'/>      
               </div>
               </div>
             </div>
           </div>
-          <h1 className='flex-1 zn-h-3 pl-10 text-center text-zn-white'>PRODUCT CODE : 11173102</h1>
-        </div>
-        <div className='body flex flex-row min-h-[300px]'>
-          <div className='w-[470px]'></div>
           <div className='flex-1 flex flex-col md:items-center'>
-            <h2 className="bodyTitle zn-body-0-bold py-6 md:w-[70%] w-[100%]">Kronostep Z209 SPC flooring, 4 mm, light shade, butterscotch oak, traffic class AC4, 1280 x 192 mm
+            <h2 className="bodyTitle zn-body-0-bold py-6 lg:w-[70%] w-[100%] pr-1 max-sm:pl-6">Kronostep Z209 SPC flooring, 4 mm, light shade, butterscotch oak, traffic class AC4, 1280 x 192 mm
             </h2>
-            <div className="details flex flex-col px-14 gap-y-6">
+            <div className="details flex flex-col lg:ml-2 md:px-8 px-5 gap-y-6">
               <div className='flex flex-row gap-x-3'>
                 <span className='w-5 h-5'>
                   <img src="/imgs/productInfoIcon-1.svg" alt="icon" className='w-full h-full'/>
@@ -81,7 +83,7 @@ const ProductInfo = () => {
           </div>
 
         </div>
-        <div className="product-details ml-[95px] w-[700px]">
+        <div className="product-details sm:ml-[95px] ml-8 mt-10 max-sm:mt-8 2xl:w-[950px] xl:w-[850px]  md:w-[700px] sm:w-[500px] w-[350px]">
           <div className='phrass pb-6'>
                 <h2 className='zn-body-0-bold py-4'>PRODUCT DESCRIPTION</h2>
                 <p className='zn-body-1'>
@@ -95,7 +97,7 @@ const ProductInfo = () => {
           <div className=" ">
               <h2 className="title zn-body-1-bold pb-3 ">ADVANTAGES:</h2>
                 <ul className='list-disc pl-5 zn-body-1'>
-                  <li className='pb-1'><a href="">
+                  <li className='pb-1 zn-body-1'><a href="">
                   resistance to long-term use</a></li>
                   <li className='pb-1'><a href="">does not require scraping or varnishing</a></li>
                   <li className='pb-1'><a href="">easy to maintain</a></li>

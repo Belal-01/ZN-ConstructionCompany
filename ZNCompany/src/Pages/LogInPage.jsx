@@ -17,7 +17,7 @@ const LogInPage = () => {
             <LogInForm />
         </div>
         <div className="login-img md:flex-1 max-md:h-[300px] w-full max-md:relative overflow-hidden">
-          <img src="/imgs/logIn.png" alt="LoginImg" className='w-full h-full max-md:h-[350px] max-md:absolute bottom-0'/>
+          <img src="/imgs/logIn.png" alt="LoginImg" className='w-full h-full max-md:h-[350px] max-md:absolute bottom-0' />
         </div>
       </div>
     </>
