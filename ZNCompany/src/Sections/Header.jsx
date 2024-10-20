@@ -84,7 +84,7 @@ const Header = () => {
         </span>
         <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>MENU</span>
        
-        <div className={`bg-zn-white border border-black absolute top-[50px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
+        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[50px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
         <ul 
         className ={`header-menu pt-8 pb-4 px-2 2xl:w-[435px] w-[240px] ${showMenu&&'header-menu-show'} `} >
           <IoClose className='absolute top-[8px] right-[20px] text-2xl cursor-pointer z-10' onClick={()=>setShowMenu(false)}/>
