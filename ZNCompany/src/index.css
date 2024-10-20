@@ -137,11 +137,14 @@ display: none;
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 ;
  }
+ .modle{
+  @apply flex flex-row justify-center items-center;
+ }
  .overly{
   @apply bg-zn-white opacity-50 ;
  }
  .modle-content{
-  @apply bg-white absolute top-[30%] lg:left-[38%] left-[35%] py-[10px] px-[20px] rounded-2xl z-10;
+  @apply bg-white  py-[10px] px-[20px] rounded-2xl z-10;
  }
 
  /* header */
