@@ -158,3 +158,110 @@ export const kitchenSlides= [
 
   }, 
 ]
+
+export const interiorCladdingSections = [
+  {
+    title:'FLOORS',
+    slides:floorSlides
+  },
+  {
+    title:'WALLS',
+    slides:wallsSlides 
+  },
+  {
+    title:'SINKS',
+    slides:sinksSlides
+  },
+  {
+    title:'FAUCETS',
+    slides:faucetsSlides
+  },
+  {
+    title:'KITCHENS',
+    slides:kitchenSlides
+  },
+ 
+]
+
+export const shrubSlides = [
+  {
+    img:'/imgs/shrubs-1.png',
+    shade:'',
+    type:''
+
+  },
+  {
+    img:'/imgs/shrubs-2.png',
+    shade:'',
+    type:''
+
+  },
+  {
+    img:'/imgs/shrubs-3.png',
+    shade:'',
+    type:''
+
+  },
+  {
+    img:'/imgs/shrubs-4.png',
+    shade:'',
+    type:''
+
+  },
+
+
+]
+export const pavmentSlides = [
+  {
+    img:'/imgs/pavement-1.png',
+    shade:'',
+    type:''
+  },
+  {
+    img:'/imgs/pavement-2.png',
+    shade:'',
+    type:''
+  },
+  {
+    img:'/imgs/pavement-3.png',
+    shade:'',
+    type:''
+  },
+  {
+    img:'/imgs/pavement-4.png',
+    shade:'',
+    type:''
+  },
+]
+export const landscapingdepartment = [
+  {
+    title:'SHRUBS',
+    slides:shrubSlides
+  },
+  {
+    title:'PAVEMENTS',
+    slides:pavmentSlides
+  },
+]
+
+export const interiorSlides = [
+  {
+    img:'/imgs/interior-1.png'
+  },
+  {
+    img:'/imgs/interior-2.png'
+  },
+  {
+    img:'/imgs/interior-3.png'
+  },
+  {
+    img:'/imgs/interior-4.png'
+  },
+
+  {
+    img:'/imgs/interior-5.png'
+  },
+  {
+    img:'/imgs/interior-6.png'
+  },
+]

@@ -8,14 +8,14 @@
   padding:0px;
 }
 html{
-  @apply w-full h-full bg-blue-200;
+  @apply w-full h-full ;
 }
 body{
-  @apply w-full h-full bg-red-200 pt-12;
+  @apply w-full h-full bg-zn-white sm:pt-[65px] pt-[52px];
 
 }
 #root{
-  @apply w-full h-full bg-green-200;
+  @apply w-full h-full;
 }
 a{
   text-decoration: none;
@@ -52,6 +52,14 @@ a{
 .imgSlider::-webkit-scrollbar{
 display: none;
 }
+.clicked{
+  border-bottom: 3px solid white;
+  padding-bottom: 4px;
+
+}
+.topMenu-round{
+  
+}
 
 @layer utilities{
   *{
@@ -65,7 +73,7 @@ display: none;
 
 }
 .zn-h-3{
-  @apply font-Lato 2xl:text-[48px] lg:text-[30px] md:text-[24px] text-[14px] font-normal  2xl:leading-[57px] lg:leading-[38px] md:leading-[28px] leading-[18px];
+  @apply font-Lato 2xl:text-[48px] lg:text-[30px] md:text-[24px] text-[20px] font-normal  2xl:leading-[57px] lg:leading-[38px] md:leading-[28px] leading-[18px];
 
 }
 .zn-h-1-bold{
@@ -78,7 +86,7 @@ display: none;
 
 }
 .zn-h-3-bold{
-  @apply font-Lato 2xl:text-[48px] lg:text-[30px] md:text-[24px] text-[14px] font-bold 2xl:leading-[57px] lg:leading-[38px] md:leading-[28px] leading-[18px];
+  @apply font-Lato 2xl:text-[48px] lg:text-[30px] md:text-[24px] text-[22px] font-bold 2xl:leading-[57px] lg:leading-[38px] md:leading-[28px] leading-[25px];
   ;
 
 }
@@ -103,12 +111,12 @@ display: none;
    
  }
 .zn-body-1-bold{
- @apply 2xl:text-[28px] lg:text-[18px]  text-[18px] font-bold 2xl:leading-[33px] lg:leading-[22px] md:leading-[16px] leading-[10px];
+ @apply 2xl:text-[28px] lg:text-[18px]  text-[18px] font-bold 2xl:leading-[33px] lg:leading-[22px] md:leading-[22px] leading-[20px];
   
 }
 
 .zn-body-2-bold{
- @apply font-Inter 2xl:text-[20px] lg:text-[11px] text-[11px] font-bold 2xl:leading-[24px] lg:leading-[18px] md:leading-[15px] leading-[10px];
+ @apply font-Inter 2xl:text-[20px] lg:text-[14px] text-[11px] font-bold 2xl:leading-[24px] lg:leading-[18px] md:leading-[15px] leading-[10px];
   
 }
 
@@ -124,7 +132,7 @@ display: none;
 
  }
  .zn-button{
-  @apply md:py-2 py-3 px-9 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
+  @apply md:py-2 py-3 md:px-9 sm:px-6 px-4 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
  }
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 ;
@@ -135,5 +143,8 @@ display: none;
  .modle-content{
   @apply bg-white absolute top-[30%] lg:left-[38%] left-[35%] py-[10px] px-[20px] rounded-2xl z-10;
  }
+
+ /* header */
+
 
 }

@@ -13,6 +13,9 @@ import VerifyPage from './Pages/VerifyPage'
 import Profile from './Pages/Profile'
 import LandingPage from './Pages/LandingPage'
 import Header from './Sections/Header'
+import ViewAllPage from './Pages/ViewAllPage'
+import ProductInfo from './Pages/ProductInfo'
+
 export const  CurrentWindowWidth = createContext()
 export const CurrentWindowHeight = createContext()
 
@@ -30,18 +33,24 @@ window.addEventListener('resize',()=>{
   return (
 
     <>
-    <Header />
+          
     <CurrentWindowHeight.Provider value={windowHeight}>
       <CurrentWindowWidth.Provider value={windowWidth}>
+      
         <BrowserRouter>
+        <Header />
           <Routes>
           
-            <Route path='/' element={<LandingPage />} />
-            {/* <Route path='/signInPage' element={<SignUpPage />}>
+            <Route path='/' element={<LogInPage />} />
+            <Route path='/signInPage' element={<SignUpPage />}>
               <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
               <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />
             </Route>
-            <Route path='/verifyPage' element={<VerifyPage />}/> */}
+            <Route path='/verifyPage' element={<VerifyPage />}/>
+            <Route path='/profilePage' element={<Profile />}/>
+            <Route path='/landingPage' element={<LandingPage />}/>
+            <Route path='/viewAllPage' element={<ViewAllPage />}/>
+            <Route path='/productInfo' element = {<ProductInfo />} />
 
           
           </Routes>

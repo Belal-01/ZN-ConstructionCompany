@@ -23,13 +23,16 @@ export default {
         'zn-black':'#121C17',
 
       }
+      ,
+   
 
     },
     fontFamily:{
       'Lato': ['Lato'] ,
        'Inter':['Inter','sans-serif']
 
-    }
+    },
+    
   },
   plugins: [
     

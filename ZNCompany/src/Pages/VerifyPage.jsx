@@ -4,6 +4,7 @@ import Button from '../Components/Button';
 import { useContext } from 'react'
 import { dynamicHieght, dynamicWidth } from '../Constants'
 import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
+import { useNavigate } from 'react-router';
 const VerifyPage = () => {
 const [erorrModle,setErorrModle] = useState(false);
 const [successModle,setSuccessModle] = useState(false)
@@ -15,6 +16,8 @@ const boldh1 = dynamicWidth(windowWidth,280)
 const height = dynamicHieght(windowHeight,260)
 console.log(boldh1)
 // console.log(height)
+
+const navigate = useNavigate();
   return (
     <>
      <Navbar />
@@ -45,7 +48,7 @@ console.log(boldh1)
       <a href="/" className='zn-body-3 text-zn-blue-light py-4'>RESEND CODE</a>
 
       <div className="verify-btn">
-        <Button>VERIFY AND CONTINUE</Button>
+       <span onClick={()=>setSuccessModle(true)}><Button>VERIFY AND CONTINUE</Button></span> 
       </div>
     </div>
     {erorrModle&&<div className='modle'>
@@ -74,7 +77,7 @@ console.log(boldh1)
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 my-4'/>
         <div className="modle-button flex flex-row justify-center text-zn-green">
-          <button className='zn-body-2 mb-2 '>
+          <button className='zn-body-2 mb-2 ' onClick={()=>navigate('/profilePage')}>
             CONTINUE
           </button>
         </div>

@@ -43,7 +43,7 @@ const SignUpForm = () => {
           
         </div>
       </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[195px] m-auto'>
+      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto'>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>EMAIL ADDRESS</label>
           <div className="relative">
@@ -111,7 +111,7 @@ const SignUpForm = () => {
           }
         
           <div className="flex justify-center">
-            {!warrningModle&&<Button >SIGN UP</Button>}
+            {!warrningModle&&<NavLink to={'/verifyPage'}><Button >SIGN UP</Button></NavLink>}
           </div>
           <div className="text-center">
             <span className="zn-body-3">HAVE AN ACCOUNT ?</span>

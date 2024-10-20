@@ -1,27 +1,21 @@
 import React from 'react'
 import ServiceSection from '../Sections/ServiceSection'
-import { faucetsSlides, floorSlides, kitchenSlides, sinksSlides, wallsSlides } from '../Constants'
+import { faucetsSlides, floorSlides, interiorCladdingSections, kitchenSlides, sinksSlides, wallsSlides } from '../Constants'
 
-const Service = () => {
+const Service = ({title,sections,color}) => {
+  let bgcolor=''
+  if(color==='blue')
+    bgcolor = 'bg-zn-blue-light'
+  else
+    bgcolor = 'bg-zn-green-light'
+
   return (
     <>
-      <div className='service'>
-        <div className="service-title 2xl:h-[178px] h-[110px] bg-zn-blue-light flex flex-col justify-center">
-          <h1 className='zn-h-3 pl-10'>INTERIOR CLADDING</h1>
+      <div className='service pb-8'>
+        <div className={`service-title 2xl:h-[178px] sm:h-[110px] h-[80px]  ${bgcolor}  flex flex-col justify-center`} id='title'>
+          <h1 className='zn-h-3 pl-10'>{title}</h1>
         </div>
-        <ServiceSection title={'FLOORS'} slides={floorSlides}/> 
-        <ServiceSection title ={'WALLS'} slides={wallsSlides}/>
-        <ServiceSection title ={'SINKS'} slides={sinksSlides}/>
-        <ServiceSection title ={'FAUCETS'} slides={faucetsSlides}/>
-        <ServiceSection title ={'KITCHENS'} slides={kitchenSlides}/>
-
-
-
-        {/* <ServiceSection title ={'SINKS'} />
-        <ServiceSection title ={'FAUCETS'} />
-        <ServiceSection title ={'KITCHENS'} /> */}
-
-
+        {sections.map((service,i)=>(<ServiceSection title={service.title} slides={service.slides} color={color} key={i}/> ))}
       </div>
     </>
   )

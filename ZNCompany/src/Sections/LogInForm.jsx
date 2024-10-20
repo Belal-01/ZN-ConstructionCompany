@@ -20,17 +20,28 @@ const height = dynamicHieght(windowHeight,79)
 console.log(height)
   return (
     <>
-    <section className="2xl:py-[100px] py-[60px] h-full bg-zn-white">
-      <h1 className='zn-h-1-bold  text-center'>
-        WELCOME
-      </h1>
-      <h2 className='text-center zn-h-3-bold'>
+    <section className="2xl:py-[100px] md:py-[60px] py-[40px] h-full bg-zn-white">
+      <div className='max-md:absolute top-12 left-0 right-0 max-md:h-[300px] z-10 flex justify-center items-center'>
+        <div className='max-md:flex max-md:flex-col max-md:justify-center max-md:w-[250px] max-md:h-[250px] max-md:rounded-full max-md:bg-zn-gray-box  text-[64px] z-10'>       
+          <div className="flex flex-row justify-center md:py-5 max-md:pb-5 md:hidden">
+            <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] md:w-[88px] md:h-[70px] max-md:w-[88px] max-md:h-[70px]'/>
+          </div>
+          <h2 className='text-center zn-body-1-bold md:hidden'>
+            REINVENT YOUR SPACE WITH US
+          </h2>
+        </div>
+      </div>
+
+      <h1 className='zn-h-1-bold pb-5 text-center'>
+          WELCOME
+        </h1>
+      <h2 className='text-center zn-h-3-bold max-md:hidden'>
         REINVENT YOUR SPACE WITH US
       </h2>
-      <div className="flex flex-row justify-center py-5">
-        <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] lg:w-[80px] md:w-[58px] w-[34px]  h-[71px]'/>
-      </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[195px] m-auto'>
+      <div className="flex flex-row justify-center md:py-5 max-md:pb-5 max-md:hidden">
+          <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] lg:w-[80px] md:w-[58px] w-[74px] md:h-[71px] h-[70px]'/>
+        </div>
+      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto'>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>EMAIL ADDRESS</label>
           <div className="relative">
@@ -62,7 +73,9 @@ console.log(height)
           </div>
           </div>
           <div className="flex justify-center">
-            <Button >LOG IN</Button>
+            <NavLink to={'/profilePage'}>
+             <Button >LOG IN</Button>
+            </NavLink>
           </div>
 
       </form>

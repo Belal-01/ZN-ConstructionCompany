@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import LogInForm from '../Sections/LogInForm'
 import Navbar from '../Sections/Navbar'
+import { NavLink } from 'react-router-dom'
 
 
 const LogInPage = () => {
@@ -8,17 +9,19 @@ const LogInPage = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="flex flex-row w-full h-full items-stretch">
-        <div className="login-form flex-1 h-full"> 
-          <LogInForm />
+    <div className="">
+    <Navbar />
+    </div>
+      <div className="flex flex-row max-md:flex-col max-md:flex-col-reverse w-full h-fit max-md:h-fit items-stretch max-md:items-center ">
+        <div className="login-form md:flex-1 h-full"> 
+            <LogInForm />
         </div>
-        <div className="login-img flex-1  ">
-          <img src="../../public/imgs/logIn.png" alt="LoginImg" className='h-full w-full'/>
+        <div className="login-img md:flex-1 max-md:h-[300px] w-full max-md:relative overflow-hidden">
+          <img src="/imgs/logIn.png" alt="LoginImg" className='w-full h-full max-md:h-[350px] max-md:absolute bottom-0'/>
         </div>
       </div>
     </>
   )
-}
+} 
 
 export default memo(LogInPage) 

@@ -8,11 +8,11 @@ const ChangePassWordForm = () => {
   const navigate = useNavigate()
   return (
     <>
-    <section className="2xl:py-[150px] py-[120px] h-full bg-zn-white">
+    <section className="2xl:py-[150px] md:py-[120px] h-full bg-zn-white">
     <h1 className='zn-h-3-bold py-[35px] text-center'>
       CHANGE PASSWORD
     </h1>
-    <form action="" className='2xl:w-[478px] lg:w-[267px] w-[195px] m-auto'>
+    <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto'>
       <div className="flex flex-col gap-y-2.5 py-2.5">
         <label htmlFor="email" className='zn-body-2'>EMAIL ADDRESS</label>
         <div className="relative">
@@ -42,7 +42,7 @@ const ChangePassWordForm = () => {
           <Button >SEND CODE</Button>
           </span>
         </div>
- 
+
     </form>
   </section>
   </>
