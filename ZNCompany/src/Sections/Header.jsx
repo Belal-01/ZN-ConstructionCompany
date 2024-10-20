@@ -84,10 +84,10 @@ const Header = () => {
         </span>
         <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>MENU</span>
        
-        <div className={`bg-zn-white absolute top-[50px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll z-50`}>
+        <div className={`bg-zn-white border border-black absolute top-[50px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
         <ul 
         className ={`header-menu pt-8 pb-4 px-2 2xl:w-[435px] w-[240px] ${showMenu&&'header-menu-show'} `} >
-          <IoClose className='absolute top-[8px] right-[20px] text-2xl cursor-pointer' onClick={()=>setShowMenu(false)}/>
+          <IoClose className='absolute top-[8px] right-[20px] text-2xl cursor-pointer z-10' onClick={()=>setShowMenu(false)}/>
           <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>HOME</li></NavLink>
           <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>ABOUT US</li></NavLink>
           <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>PROJECTS</li></NavLink>
