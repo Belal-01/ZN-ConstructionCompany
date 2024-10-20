@@ -100,8 +100,8 @@ const Header = () => {
           <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>RAILINGS</li>
           <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>WOODWOORKING</li>
           <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>SHOWROOM</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>PROFILE</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>CONTACT US</li>
+          <NavLink to={'/profilePage'}><li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>PROFILE</li></NavLink>
+          <NavLink to={'/landingPage'}><li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>CONTACT US</li></NavLink>
         </ul>
         </div>
         
