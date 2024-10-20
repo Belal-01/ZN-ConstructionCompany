@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='flex flex-col justify-between h-[300px] bg-zn-blue-dark sm:px-[45px] px-[20px] pt-[40px] pb-5 '>
+    <footer className='flex flex-col justify-between gap-y-6 h-[300px] bg-zn-blue-dark sm:px-[45px] px-[20px] pt-[40px] pb-5 '>
       <div className='grid md:grid-cols-4 max-md:grid-cols-2 gap-y-6 max-sm:gap-x-3 justify-between items-top'>
         <div className="logo self-start flex md:flex-row max-md:flex-col flex-wrap justify-center items-center gap-x-2 max-w-[200px]">
           <img src="imgs/logo.png" alt="logo" className='w-[70px] '/>
