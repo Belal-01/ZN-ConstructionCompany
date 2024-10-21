@@ -22,7 +22,7 @@ const Profile = () => {
           <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-zn-white bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
             <div className="img lg:flex-1 max-md:h-[100px] relative">
               <div className='2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161px] rounded-full bg-zn-green-dark absolute 2xl:-top-[145px] -top-[80px] sm:left-10 left-6 p-1 relative z-0'>
-                <img src="/imgs/myprofile.png" alt="userImg" className='overflow-hidden rounded-full object-fill' loading='lazy' />
+                <img src="/imgs/myprofile.png" alt="userImg" className='rounded-full object-fill w-full h-full' loading='lazy' />
                 <span className='absolute bg-zn-white border-2 border-zn-black rounded-md px-2 -bottom-5 left-4'>@bilal-mustafa</span>
               </div>
             </div>
@@ -39,8 +39,8 @@ const Profile = () => {
           </div>
           <div className='sm:flex-auto  md:bg-zn-black max-md:lg-zn-white max-md:pb-10 md:pl-20 sm:pl-10 pl-4 md:pr-16 '>
           <div className="info max-md:pt-[100px]">
-              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black py-10'>BILAL</h2>
-              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>SYRIA</h2>
+              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black py-10'>BILAL MUSTAFA</h2>
+              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>SYRIA-DAMASCUS</h2>
               <p className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10 '>belalkhobieh343@gmail.com</p>
               <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>+963-000-000-000</h2>
           </div>
