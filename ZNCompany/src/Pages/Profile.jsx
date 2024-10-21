@@ -44,7 +44,7 @@ const Profile = () => {
               <p className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10 '>belalkhobieh343@gmail.com</p>
               <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>+963-000-000-000</h2>
           </div>
-            <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 right-8 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
+            <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 sm:right-8 right-4 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
               LOG OUT
             </button>
           </div>
