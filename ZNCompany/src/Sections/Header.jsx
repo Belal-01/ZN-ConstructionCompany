@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
   <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[70px] h-[55px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
-    <div className="logo border-r-2 flex flex-row justify-between items-center gap-x-1 px-4">
+    <div className="logo border-r-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
       <img src="imgs/logo.png" alt="logo" className='w-[50px]'/>
       <p className='zn-body-2 text-zn-white max-sm:hidden'>THE CONSTRUCTION AND <br /> LANDSCAPING COMPANY</p>
     </div>
@@ -107,7 +107,9 @@ const Header = () => {
         
       </div>
       <div className="booking">
-        <Button>BOOK NOW</Button>
+      <button className='md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4'>
+        BOOK NOW
+      </button>
       </div>
     </div>
    
