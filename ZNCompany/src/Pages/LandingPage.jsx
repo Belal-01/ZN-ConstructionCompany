@@ -9,14 +9,8 @@ import ContactUs from '../Sections/ContactUs'
 import Footer from '../Sections/Footer'
 import Header from '../Sections/Header'
 const LandingPage = () => {
-  const windowWidth = useContext(CurrentWindowWidth)
-  const windowHeight = useContext(CurrentWindowHeight)
-  // console.log(windowHeight)
-  // console.log(windowWidth)
-  const boldh1 = dynamicWidth(windowWidth,0)
-  const height = dynamicHieght(windowHeight,355)
-  //  console.log(boldh1)
-  console.log(height)
+
+
   return (
     <>
        {/* <Header /> */}

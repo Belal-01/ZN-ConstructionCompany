@@ -2,11 +2,14 @@ import React from 'react'
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+import { useStore } from '../store';
 
 const ContactUs = () => {
+  const nightMood = useStore((store)=>store.darkMood)
+
   return (
     <>
-      <div className='h-[100px] flex flex-row flex-wrap justify-between items-center px-[40px] gap-y-3 max-sm:min-h-[180px]'>
+      <div className={`h-[100px] flex flex-row flex-wrap justify-between items-center px-[40px] gap-y-3 max-sm:min-h-[180px] ${nightMood&&'text-zn-white'}`}>
         <div className="contact-title">
           <h1 className='zn-h-3 '>CONTACT US</h1>
         </div>

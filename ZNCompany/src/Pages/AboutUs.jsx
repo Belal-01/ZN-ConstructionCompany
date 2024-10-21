@@ -1,14 +1,17 @@
 import React from 'react'
+import { useStore } from '../store'
 
 const AboutUs = () => {
+  const nightMood = useStore((store)=>store.darkMood)
+
   return (
     <>
     <div>
-        <div className="service-title 2xl:h-[178px] sm:h-[110px] h-[80px] bg-zn-blue-light flex flex-col justify-center">
-          <h1 className='zn-h-3 pl-10'>ABOUT US AND OUT SERVICES</h1>
+        <div className={`service-title 2xl:h-[178px] sm:h-[110px] h-[80px] ${nightMood?'bg-zn-blue':'bg-zn-blue-light'} flex flex-col justify-center`}>
+          <h1 className={`zn-h-3 pl-10 ${nightMood&&'text-zn-white'}`}>ABOUT US AND OUT SERVICES</h1>
         </div>
         <div className="aboutUs-info flex flex-row flex-wrap 2xl:py-[38px] 2xl:px-[78px] px-[45px] py-[25px] gap-x-[45px]">
-          <div className='left-section flex-1 min-w-[240px]'>
+          <div className={`left-section flex-1 min-w-[240px] ${nightMood&&'text-zn-white'}`}>
             <div className='phrass pb-6'>
               <h2 className='zn-body-1-bold'>WELCOME</h2>
               <p className='zn-body-2'>to Z and N Construction and Landscaping, where quality meets creativity. Founded with a passion for transforming outdoor spaces and building lasting structures, we are dedicated to providing exceptional services that enhance both the beauty and functionality of your property.</p>
@@ -22,7 +25,7 @@ const AboutUs = () => {
               <p className='zn-body-2'>to Z and N Construction and Landscaping, where quality meets creativity. Founded with a passion for transforming outdoor spaces and building lasting structures, we are dedicated to providing exceptional services that enhance both the beauty and functionality of your property.</p>
             </div>
           </div>
-          <div className='right-section flex-1 min-w-[240px]'>
+          <div className={`right-section flex-1 min-w-[240px] ${nightMood&&'text-zn-white'}`}>
           <div className='phrass pb-6'>
               <h2 className='zn-body-1-bold'>WHAT WE OFFER</h2>
               <p className='zn-body-2'>Construction Services: From residential projects to commercial builds, we handle everything from design to execution, ensuring a seamless construction process.

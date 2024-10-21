@@ -1,22 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Components/Button'
 import { IoClose, IoKeyOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap/all';
+import { MdOutlineLightMode } from "react-icons/md";
+import { GiNightSleep } from "react-icons/gi";
+import { useStore } from '../store';
 
 
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
+  const [moodModle,setMoodModle] = useState(false)
   const [navLinks,setNavLinks] = useState({
     home:false,
     about:false,
     projects:false
 
   })
+  const nightMood = useStore((store)=>store.darkMood)
+  const setNightMood = useStore((store)=>store.setDarkMood)
+
+
+  useEffect(()=>{
+    if(nightMood){
+      document.body.classList.add('nightbg')
+    }else
+      document.body.classList.remove('nightbg')
+
+  },[nightMood])
   useGSAP(()=>{
     if(showMenu){
     gsap.to('.topMenu-icon',{
@@ -105,6 +119,29 @@ const Header = () => {
         </ul>
         </div>
         
+      </div>
+      <div className="switchMood relative">
+        <span onClick={()=>setMoodModle(prev=>!prev)}>{nightMood? <GiNightSleep className='text-zn-dark text-3xl cursor-pointer'/>:<MdOutlineLightMode className='text-zn-white text-3xl cursor-pointer'/>
+       }</span>
+        {moodModle&&<div className="moodeModle bg-zn-white py-2 px-2 rounded-lg absolute top-16 -left-10">
+          <ul>
+            <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{
+              setNightMood(false)
+              setMoodModle(false)
+              
+              }}>
+              <MdOutlineLightMode className='text-zn-dark text-3xl cursor-pointer'/>
+              <span>Light</span>
+            </li>
+            <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{
+              setNightMood(true)
+              setMoodModle(false)
+            }}>
+              <GiNightSleep className='text-zn-dark text-3xl cursor-pointer'/>
+              <span>Night</span>
+            </li>
+          </ul>
+        </div>}
       </div>
       <div className="booking">
       <button className='md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4'>

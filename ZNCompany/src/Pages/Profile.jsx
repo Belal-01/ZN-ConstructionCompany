@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useGSAP } from '@gsap/react'
 import { modleAnimation } from '../Utils/main'
+import { useStore } from '../store'
 
 const Profile = () => {
   const [logMessage,setLogMessage] = useState(false)
+  const nightMood = useStore((store)=>store.darkMood)
+
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
 
@@ -19,7 +22,7 @@ const Profile = () => {
           <img src="/imgs/profileImg.png" alt="Seaview" className='h-full w-full object-cover' loading='lazy'/>
         </div>
         <div className="flex-1 profileInfo flex flex-row h-fit w-full overflow-visible">
-          <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-zn-white bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
+          <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
             <div className="img lg:flex-1 max-md:h-[100px] relative">
               <div className='2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161px] rounded-full bg-zn-green-dark absolute 2xl:-top-[145px] -top-[80px] sm:left-10 left-6 p-1 relative z-0'>
                 <img src="/imgs/myprofile.png" alt="userImg" className='rounded-full object-fill w-full h-full' loading='lazy' />
@@ -39,10 +42,10 @@ const Profile = () => {
           </div>
           <div className='sm:flex-auto  md:bg-zn-black max-md:lg-zn-white max-md:pb-10 md:pl-20 sm:pl-10 pl-4 md:pr-16 relative'>
           <div className="info max-md:pt-[100px] mb-6">
-              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black py-10'>BILAL MUSTAFA</h2>
-              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>SYRIA-DAMASCUS</h2>
-              <p className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10 '>belalkhobieh343@gmail.com</p>
-              <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>+963-000-000-000</h2>
+              <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} py-10`}>BILAL MUSTAFA</h2>
+              <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>SYRIA-DAMASCUS</h2>
+              <p className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>belalkhobieh343@gmail.com</p>
+              <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>+963-000-000-000</h2>
           </div>
             <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 sm:right-8 right-0 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
               LOG OUT

@@ -5,21 +5,17 @@ import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
 import { FaRegHeart } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa6";
 import { useLocation } from 'react-router';
+import { useStore } from '../store';
 const ProductInfo = () => {
   const [fillHeart,setFillHeart] = useState(false)
+  const nightMood = useStore((store)=>store.darkMood)
+
   const location = useLocation()
   const {img,shade} = location.state ||{}
 
-  const windowWidth = useContext(CurrentWindowWidth)
-  const windowHeight = useContext(CurrentWindowHeight)
-  // console.log(windowHeight)
-  // console.log(windowWidth)
-  const boldh1 = dynamicWidth(windowWidth,215)
-  const height = dynamicHieght(windowHeight,215)
-  console.log(height)
-  console.log(boldh1)
+
   return (
-    <div className='productInfo flex flex-col pb-[150px]'> 
+    <div className={`productInfo flex flex-col pb-[150px] ${nightMood&&'text-zn-white'}`}> 
        <div className="overflow-hidden profileImg  2xl:h-[250px] h-[197px]" >
           <img src="/imgs/productInfobg.png" alt="Seaview" className='h-full w-full object-cover' loading='lazy'/>
         </div>
@@ -62,7 +58,7 @@ const ProductInfo = () => {
             <div className="details flex flex-col lg:ml-2 md:px-8 px-5 gap-y-6">
               <div className='flex flex-row gap-x-3'>
                 <span className='w-5 h-5'>
-                  <img src="/imgs/productInfoIcon-1.svg" alt="icon" className='w-full h-full'/>
+                  <img src="/imgs/productInfoIcon-1.svg" alt="icon" className='w-full h-full '/>
                 </span>
                 <p className='zn-body-1'>Product type: SPC flooring</p>
               </div>
