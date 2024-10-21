@@ -12,7 +12,7 @@ import gsap from 'gsap/all';
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
   const [navLinks,setNavLinks] = useState({
-    home:true,
+    home:false,
     about:false,
     projects:false
 
