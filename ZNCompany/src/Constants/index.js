@@ -265,3 +265,23 @@ export const interiorSlides = [
     img:'/imgs/interior-6.png'
   },
 ]
+export const exteriorSlides = [
+  {
+    img:'/imgs/exterior-1.png'
+  },
+  {
+    img:'/imgs/exterior-2.png'
+  },
+  {
+    img:'/imgs/exterior-3.png'
+  },
+  {
+    img:'/imgs/exterior-4.png'
+  },
+  {
+    img:'/imgs/exterior-5.png'
+  },
+  {
+    img:'/imgs/exterior-6.png'
+  },
+]

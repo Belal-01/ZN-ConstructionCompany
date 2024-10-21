@@ -1,5 +1,5 @@
 import React from 'react'
-import { interiorSlides } from '../Constants'
+import { exteriorSlides, interiorSlides } from '../Constants'
 import ProductImg from '../Components/ProductImg'
 import ViewAllBtn from '../Components/ViewAllBtn'
 import { useNavigate } from 'react-router'
@@ -42,7 +42,7 @@ const handlePassingData = (title ,slides)=>{
               </div>
             </div>
               <div className="gallery grid justify-items-center max-md:grid-cols-2 max-lg:grid-cols-3 max-sm:grid-cols-1 grid-cols-2 max-2xl:gap-x-4 gap-x-7 gap-y-8">
-              {interiorSlides.map((slide,i)=>(<ProductImg img={slide.img} shade={''} type={''} key={i}/>))} 
+              {exteriorSlides.map((slide,i)=>(<ProductImg img={slide.img} shade={''} type={''} key={i}/>))} 
               </div>
           </div>
         </div>
