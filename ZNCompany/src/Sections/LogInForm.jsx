@@ -6,22 +6,21 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoKeyOutline } from "react-icons/io5";
 import Button from '../Components/Button';
 import { NavLink } from 'react-router-dom';
+import { useGSAP } from '@gsap/react';
+import { modleAnimation } from '../Utils/main';
 
 const LogInForm = () => {
   const [erorrModle,setErorrModle] = useState(false);
   const [warrningModle,setWarrningModle] = useState(false)
-const windowWidth = useContext(CurrentWindowWidth)
-const windowHeight = useContext(CurrentWindowHeight)
-// console.log(windowHeight)
-// console.log(windowWidth)
-const boldh1 = dynamicWidth(windowWidth,108)
-const height = dynamicHieght(windowHeight,79)
-// console.log(boldh1)
-console.log(height)
+
+  useGSAP(()=>{
+    modleAnimation('.modle-content','.modle-body','340px')
+    
+  },[erorrModle])
   return (
     <>
     <section className="2xl:py-[100px] md:py-[60px] py-[40px] h-full bg-zn-white">
-      <div className='max-md:absolute top-12 left-0 right-0 max-md:h-[300px] z-10 flex justify-center items-center'>
+      <div className='max-md:absolute top-12 left-0 right-0 max-md:h-[300px] z-20 flex justify-center items-center'>
         <div className='max-md:flex max-md:flex-col max-md:justify-center max-md:w-[250px] max-md:h-[250px] max-md:rounded-full max-md:bg-zn-gray-box  text-[64px] z-10'>       
           <div className="flex flex-row justify-center md:py-5 max-md:pb-5 md:hidden">
             <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] md:w-[88px] md:h-[70px] max-md:w-[88px] max-md:h-[70px]'/>
@@ -83,18 +82,19 @@ console.log(height)
     {erorrModle&&<div className='modle'>
       <div className="overly"></div>
       <div className="modle-content">
+        <div className="modle-body">
         <h1 className='zn-h-4-semiBold text-center py-5'>ERROR</h1>
-        <div className="modle-body px-12 text-zn-gray-3">
+        <div className="modle-body px-6 text-zn-gray-3">
         <p className='zn-body-2 text-center'>PLEASE WAIT A FEW MINUTES</p>
         <p className='zn-body-2 text-center'>BEFORE YOU TRY AGAIN</p>
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 my-4'/>
         <div className="modle-button flex flex-row justify-center text-zn-red">
-          <button className='zn-body-2 mb-2 '>
+          <button className='zn-body-2 mb-2 ' onClick={()=>setErorrModle(false)}>
             DISMISS
           </button>
         </div>
-        
+        </div> 
       </div>
       </div>}
     </>

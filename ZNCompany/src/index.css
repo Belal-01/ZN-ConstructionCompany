@@ -55,6 +55,7 @@ display: none;
 .clicked{
   border-bottom: 3px solid white;
   padding-bottom: 4px;
+  
 
 }
 .topMenu-round{
@@ -135,7 +136,7 @@ display: none;
   @apply md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
  }
  .modle,.overly{
-  @apply fixed top-0 left-0 right-0 bottom-0 ;
+  @apply fixed top-0 left-0 right-0 bottom-0 z-30;
  }
  .modle{
   @apply flex flex-row justify-center items-center;
@@ -144,7 +145,10 @@ display: none;
   @apply bg-zn-white opacity-50 ;
  }
  .modle-content{
-  @apply bg-white  py-[10px] px-[20px] rounded-2xl z-10;
+  @apply bg-white rounded-2xl  py-[10px] px-[20px] z-40 w-0;
+ }
+ .modle-body{
+  @apply opacity-0 ;
  }
 
  /* header */

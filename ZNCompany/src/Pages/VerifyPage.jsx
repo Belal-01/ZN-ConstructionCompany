@@ -5,17 +5,17 @@ import { useContext } from 'react'
 import { dynamicHieght, dynamicWidth } from '../Constants'
 import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
 import { useNavigate } from 'react-router';
+import { useGSAP } from '@gsap/react';
+import { modleAnimation } from '../Utils/main';
 const VerifyPage = () => {
 const [erorrModle,setErorrModle] = useState(false);
 const [successModle,setSuccessModle] = useState(false)
-const windowWidth = useContext(CurrentWindowWidth)
-const windowHeight = useContext(CurrentWindowHeight)
-// console.log(windowHeight)
-// console.log(windowWidth)
-const boldh1 = dynamicWidth(windowWidth,280)
-const height = dynamicHieght(windowHeight,260)
-console.log(boldh1)
-// console.log(height)
+
+useGSAP(()=>{
+  modleAnimation('.modle-content','.modle-body','340px')
+  
+},[successModle])
+
 
 const navigate = useNavigate();
   return (
@@ -54,6 +54,7 @@ const navigate = useNavigate();
     {erorrModle&&<div className='modle'>
       <div className="overly"></div>
       <div className="modle-content">
+        <div className="modle-body">
         <h1 className='zn-h-4-semiBold text-center py-5'>ERROR</h1>
         <div className="modle-body px-12 text-zn-gray-3">
         <p className='zn-body-2 text-center'>PLEASE WAIT A FEW MINUTES</p>
@@ -64,6 +65,7 @@ const navigate = useNavigate();
           <button className='zn-body-2 mb-2 '>
             DISMISS
           </button>
+          </div>
         </div>
         
       </div>
@@ -71,6 +73,7 @@ const navigate = useNavigate();
       {successModle&&<div className='modle'>
       <div className="overly"></div>
       <div className="modle-content">
+        <div className="modle-body">
         <h1 className='zn-h-4-semiBold text-center py-5'>SIGNED UP</h1>
         <div className="modle-body px-12 text-zn-gray-3">
         <p className='zn-body-2 text-center'>YOUR ACCOUNT SUCCESSFULLY VERIFIED</p>
@@ -80,6 +83,7 @@ const navigate = useNavigate();
           <button className='zn-body-2 mb-2 ' onClick={()=>navigate('/profilePage')}>
             CONTINUE
           </button>
+          </div>
         </div>
         
       </div>

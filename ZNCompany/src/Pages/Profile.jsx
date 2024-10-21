@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import Navbar from '../Sections/Navbar'
-import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth } from '../Constants'
-import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
-import Header from '../Sections/Header'
 import { useNavigate } from 'react-router'
+import { useGSAP } from '@gsap/react'
+import { modleAnimation } from '../Utils/main'
 
 const Profile = () => {
   const [logMessage,setLogMessage] = useState(false)
+  useGSAP(()=>{
+    modleAnimation('.modle-content','.modle-body','340px')
+
+  },[logMessage])
 
     const navigate = useNavigate();
   return (
@@ -52,19 +53,21 @@ const Profile = () => {
       {logMessage&&<div className='modle'>
       <div className="overly"></div>
       <div className="modle-content">
+      <div className="modle-body">
         <div className="modle-body px-12 py-8 text-zn-gray-3">
         <p className='zn-body-2 text-center'>ARE YOU SURE YOU WANT </p>
         <p className='zn-body-2 text-center'>TO LOG OUT ?</p>
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 '/>
         <div className="modle-button flex flex-row justify-center py-2 text-zn-red">
-          <button className=' flex-1 zn-body-2  text-zn-red py-2 text-center border-r-2' onClick={()=>navigate(-1)}>
+          <button className=' flex-1 zn-body-2  text-zn-red py-2 text-center border-r-2' onClick={()=>navigate('/')}>
             YES
           </button>
           <button className='flex-1 zn-body-2  text-zn-green text-center' onClick={()=>setLogMessage(false)}>
             NO
           </button >
         </div>
+      </div>
         
       </div>
       </div>}
