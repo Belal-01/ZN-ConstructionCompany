@@ -21,7 +21,7 @@ const Profile = () => {
         <div className="flex-1 profileInfo flex flex-row h-fit w-full overflow-visible">
           <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-zn-white bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
             <div className="img lg:flex-1 max-md:h-[100px] relative">
-              <div className='2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161] rounded-full bg-zn-green-dark absolute -top-20 left-10 p-1 relative z-0'>
+              <div className='2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161px] rounded-full bg-zn-green-dark absolute 2xl:-top-[145px] -top-[80px] sm:left-10 left-6 p-1 relative z-0'>
                 <img src="/imgs/myprofile.png" alt="userImg" className='overflow-hidden rounded-full object-fill' loading='lazy' />
                 <span className='absolute bg-zn-white border-2 border-zn-black rounded-md px-2 -bottom-5 left-4'>@bilal-mustafa</span>
               </div>
