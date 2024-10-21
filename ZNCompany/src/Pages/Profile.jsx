@@ -37,14 +37,14 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className='sm:flex-auto  md:bg-zn-black max-md:lg-zn-white max-md:pb-10 md:pl-20 sm:pl-10 pl-4 md:pr-16 '>
-          <div className="info max-md:pt-[100px]">
+          <div className='sm:flex-auto  md:bg-zn-black max-md:lg-zn-white max-md:pb-10 md:pl-20 sm:pl-10 pl-4 md:pr-16 relative'>
+          <div className="info max-md:pt-[100px] mb-6">
               <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black py-10'>BILAL MUSTAFA</h2>
               <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>SYRIA-DAMASCUS</h2>
               <p className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10 '>belalkhobieh343@gmail.com</p>
               <h2 className='zn-body-1-bold text-zn-white max-md:text-zn-black pb-10'>+963-000-000-000</h2>
           </div>
-            <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 sm:right-8 right-4 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
+            <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 sm:right-8 right-0 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
               LOG OUT
             </button>
           </div>
