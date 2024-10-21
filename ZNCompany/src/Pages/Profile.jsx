@@ -15,7 +15,7 @@ const Profile = () => {
     <>
     {/* <Header /> */}
       <div className='flex flex-col h-full'>
-        <div className="flex-1 overflow-hidden profileImg h-[300px]" >
+        <div className="flex-1 overflow-hidden profileImg min-h-[300px]" >
           <img src="/imgs/profileImg.png" alt="Seaview" className='h-full w-full object-cover' loading='lazy'/>
         </div>
         <div className="flex-1 profileInfo flex flex-row h-fit w-full overflow-visible">
