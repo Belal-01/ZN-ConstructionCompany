@@ -26,6 +26,7 @@ const Header = () => {
     projects:false
 
   })
+  
   const nightMood = useStore((store)=>store.darkMood)
   const setNightMood = useStore((store)=>store.setDarkMood)
 
@@ -65,6 +66,21 @@ const Header = () => {
     })
   }
   },[showMenu])
+  useGSAP(()=>{
+    gsap.fromTo('.dark',{
+      rotate:-65
+    },{
+      rotate:10,
+      duration:.8,
+   
+    })
+    gsap.to('.light',{
+      rotate:65,
+      duration:.8,
+
+    })
+  },[nightMood])
+ 
   const handleNavLink = (link)=>{
       if(link==='home'){
         setNavLinks({home:true,about:false,projects:false})
@@ -164,7 +180,7 @@ const Header = () => {
         
       </div>
       <div className="switchMood relative">
-        <span onClick={()=>setMoodModle(prev=>!prev)}>{nightMood? <GiNightSleep className='text-zn-dark text-3xl cursor-pointer'/>:<MdOutlineLightMode className='text-zn-white text-3xl cursor-pointer'/>
+        <span onClick={()=>setMoodModle(prev=>!prev)}>{nightMood?<GiNightSleep className='dark text-zn-dark text-3xl cursor-pointer'/>:<MdOutlineLightMode className='light text-zn-white text-3xl cursor-pointer'/>
        }</span>
         {moodModle&&<div className="moodeModle bg-zn-white py-2 px-2 rounded-lg absolute top-16 -left-10">
           <ul>
@@ -172,11 +188,12 @@ const Header = () => {
               setNightMood(false)
               setMoodModle(false)
               
+              
               }}>
               <MdOutlineLightMode className='text-zn-dark text-3xl cursor-pointer'/>
               <span>Light</span>
             </li>
-            <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{
+            <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{     
               setNightMood(true)
               setMoodModle(false)
             }}>
