@@ -7,6 +7,8 @@ import { FaHeart } from "react-icons/fa6";
 import { useLocation } from 'react-router';
 import { useStore } from '../store';
 import { useTranslation } from 'react-i18next';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap/all';
 const ProductInfo = () => {
   const [fillHeart,setFillHeart] = useState(false)
   const nightMood = useStore((store)=>store.darkMood)
@@ -14,6 +16,15 @@ const ProductInfo = () => {
   const location = useLocation()
   const {img,shade} = location.state ||{}
   const {t} = useTranslation()
+
+  useGSAP(()=>{
+    gsap.fromTo('.heart',{
+      scale:1.8,
+      duration:1.5
+    },{
+      scale:1
+    })
+  },[fillHeart])
 
   return (
     <div className={`productInfo flex flex-col pb-[150px] ${nightMood&&'text-zn-white'}`}> 
@@ -35,7 +46,7 @@ const ProductInfo = () => {
                 <div className="slid-info flex flex-col absolute bottom-3 right-3">
                   <span className='zn-body-1-bold bg-zn-green-light p-2 rounded-full cursor-pointer'
                   onClick={()=>setFillHeart(prev=>!prev)}>
-                    {fillHeart?<FaHeart className='text-zn-green-dark text-2xl'/>:
+                    {fillHeart?<FaHeart className='heart text-zn-green-dark text-2xl'/>:
                     <FaRegHeart  className='text-zn-blue text-2xl'/>}
                     </span>
                 </div>     
