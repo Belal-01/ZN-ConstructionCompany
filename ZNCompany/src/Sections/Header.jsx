@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from '../Components/Button'
 import { IoClose, IoKeyOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
-import { NavLink } from 'react-router-dom';
+import { json, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap/all';
@@ -20,7 +20,7 @@ const Header = () => {
   const [showSubMenu,setShowSubMenu] = useState(false)
   const [moodModle,setMoodModle] = useState(false)
   const [languagesMenu,setLanguagesMenu] = useState(false)
-  const [navLinks,setNavLinks] = useState({
+  const [navLinks,setNavLinks] = useState(JSON.parse(localStorage.getItem('navLinks'))||{
     home:false,
     about:false,
     projects:false
@@ -66,12 +66,20 @@ const Header = () => {
   }
   },[showMenu])
   const handleNavLink = (link)=>{
-      if(link==='home')
+      if(link==='home'){
         setNavLinks({home:true,about:false,projects:false})
-      else if(link === 'about')
+        localStorage.setItem('navLinks',JSON.stringify({home:true,about:false,projects:false}))
+      }
+      else if(link === 'about'){
         setNavLinks({home:false,about:true,projects:false})
-      else
+        localStorage.setItem('navLinks',JSON.stringify({home:false,about:true,projects:false}))
+
+      }
+      else{
         setNavLinks({home:false,about:false,projects:true})
+        localStorage.setItem('navLinks',JSON.stringify({home:false,about:false,projects:true}))
+
+      }
   }
 
   
