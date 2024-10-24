@@ -8,9 +8,10 @@ import BusinessExhibtion from '../Sections/BusinessExhibtion'
 import ContactUs from '../Sections/ContactUs'
 import Footer from '../Sections/Footer'
 import Header from '../Sections/Header'
+import { useTranslation } from 'react-i18next'
 const LandingPage = () => {
 
-
+const {t} = useTranslation()
   return (
     <>
        {/* <Header /> */}
@@ -18,13 +19,13 @@ const LandingPage = () => {
         <div className="landingImg flex flex-row items-center justify-center">
           <img src="/imgs/LandingImg.png" alt="LandingImg"  className='sm:brightness-50 brightness-75'/>
           <div className="img-text absolute max-sm:hidden">
-            <p className='zn-h-3-bold text-white text-center'>
-              TRANSROM YOUR VISION INTO REALITY WITH OUR <br />EXPERT CONSTRUCTION AND LANDING SERVICES <br /> WHERE QUALITY MEETS CREATIVITY .
+            <p className='zn-h-3-bold text-white text-center max-w-[800px]'>
+              {t("TRANSROM YOUR VISION INTO REALITY WITH OUR")} {t("EXPERT CONSTRUCTION AND LANDING SERVICES")} <br />{t("WHERE QUALITY MEETS CREATIVITY")}
             </p>
           </div>
         </div>  
-        <Service title={'INTERIOR CLADDING'} sections={interiorCladdingSections} color={'blue'}/> 
-        <Service title={'LANDSCAPING DEPARTMENT'} sections={landscapingdepartment} color={'green'}/> 
+        <Service title={t("INTERIOR CLADDING")} sections={interiorCladdingSections} color={'blue'}/> 
+        <Service title={t("LANDSCAPING DEPARTMENT")} sections={landscapingdepartment} color={'green'}/> 
 
         {/* ABOUT US PAGE */}
         <AboutUs />

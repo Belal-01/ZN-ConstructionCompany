@@ -4,6 +4,7 @@ import { floorSlides } from '../Constants'
 import ViewAllBtn from '../Components/ViewAllBtn'
 import { useNavigate } from 'react-router'
 import { useStore } from '../store'
+import { useTranslation } from 'react-i18next'
 
 const ServiceSection = ({title ,slides,color}) => {
   const nightMood = useStore((store)=>store.darkMood)
@@ -20,15 +21,16 @@ const navigate = useNavigate()
 const handlePassingData = ()=>{
   navigate('/viewAllPage',{state:{title,slides}})
 }
+ const {t} = useTranslation()
   return (
     <>
       <div className=' 2xl:pt-[60px] pt-[40px]'>
         <div className="service-title flex flex-row gap-x-4 items-center justify-between ">
           <div className={`flex flex-row gap-x-4 items-center ${nightMood&& 'text-zn-white'}`}>
             <div className={`w-10 h-6 ${bgcolor}`}></div>
-            <p className='zn-h-3'>{title}</p>
+            <p className='zn-h-3'>{t(title)}</p>
           </div>
-          <div className="viewAll pr-6">
+          <div className="viewAll px-6">
             <span onClick={()=>handlePassingData()}>
             <ViewAllBtn color={bgcolor}>View All</ViewAllBtn>
             </span>

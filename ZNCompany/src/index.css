@@ -37,21 +37,26 @@ a{
 
 .menu-container{
  max-height: 0px;
-  transition: max-height .4s ease-in;
+transition: max-height .4s ease-in;
 }
 .menu-container-show{
-  max-height: 500px;
+  max-height: 450px;
 }
 
 .header-menu{
-  visibility: hidden;
   opacity: 0;
-  transition: opacity .5s ease-in;
 }
 .header-menu-show{
-  visibility: visible;
   opacity: 1;
 }
+.subMenu-container{
+  max-height: 0px;
+  transition: max-height .4s ease-in;
+}
+.subMenu-container-show{
+  max-height: 1000px;
+}
+
 .imgSlider::-webkit-scrollbar{
 display: none;
 }
@@ -129,7 +134,7 @@ display: none;
    
  }
  .zn-input-field{
-  @apply rounded-md h-7 py-0 w-full pl-8 2xl:pl-10 bg-zn-gray-box border border-zn-black;
+  @apply rounded-md h-7 py-0 w-full px-8 2xl:pl-10 bg-zn-gray-box border border-zn-black;
  }
  .zn-input-field::placeholder{
   @apply zn-body-2  ;

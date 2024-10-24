@@ -9,31 +9,27 @@ import { IoPersonOutline } from "react-icons/io5";
 import { FiPhone } from "react-icons/fi";
 import { IoAddSharp } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
 
 
 
 const SignUpForm = () => {
   const [erorrModle,setErorrModle] = useState(false);
-  const [warrningModle,setWarrningModle] = useState(false)
+  const [warrningModle,setWarrningModle] = useState(false);
 
-  const windowWidth = useContext(CurrentWindowWidth)
-  const windowHeight = useContext(CurrentWindowHeight)
-  // console.log(windowHeight)
-  // console.log(windowWidth)
-  const boldh1 = dynamicWidth(windowWidth,250)
-  const height = dynamicHieght(windowHeight,195)
-   console.log(boldh1)
-  console.log(height)
-
+  const {t} = useTranslation();
+  const lan = Cookies.get('i18next')|| "en"
+  
 
   return (
     <>
     <section className="2xl:py-[100px] py-[30px] h-full bg-zn-white">
       <h1 className='zn-h-3-bold  text-center'>
-        SIGN UP
+        {t("SIGNUP")}
       </h1>
       <h2 className='text-center zn-body-2'>
-         PROFILE PICTURE
+         {t("PROFILE PICTURE")}
       </h2>
       <div className="flex flex-row justify-center py-5">
         <div className="profile w-[110px] h-[110px] rounded-full bg-zn-gray-box relative">
@@ -45,43 +41,43 @@ const SignUpForm = () => {
       </div>
       <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto'>
         <div className="flex flex-col gap-y-2.5 py-2.5">
-          <label htmlFor="email" className='zn-body-2'>EMAIL ADDRESS</label>
+          <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
-          <input type="email" id='email' className='zn-input-field ' placeholder={'EXAMPLE@GMAIL.COM'}/>
-          <MdOutlineMail className='absolute top-1.5 left-1.5 ' />
+          <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'}/>
+          <MdOutlineMail className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="userNumber" className='zn-body-2'>PHONE NUMBER</label>
+          <label htmlFor="userNumber" className='zn-body-2'>{t("PHONE NUMBER")}</label>
           <div className="relative">
           <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***'/>
-          <FiPhone className='absolute top-1.5 left-1.5 ' />
+          <FiPhone className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="userName" className='zn-body-2'>USERNAME</label>
+          <label htmlFor="userName" className='zn-body-2'>{t("USERNAME")}</label>
           <div className="relative">
           <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name'/>
-          <IoPersonOutline className='absolute top-1.5 left-1.5 ' />
+          <IoPersonOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="password" className='zn-body-2'>PASSWORD</label>
+          <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='password' className='zn-input-field' placeholder='****************'/>
-          <IoKeyOutline className='absolute top-1.5 left-1.5 ' />
+          <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="Re-password" className='zn-body-2'>RE-ENTER PASSWORD</label>
+          <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='Re-password' className='zn-input-field' placeholder='****************'/>
-          <IoKeyOutline className='absolute top-1.5 left-1.5 ' />
+          <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-row gap-x-10">
           <div className="flex flex-col gap-y-2">
-          <label htmlFor="Country" className='zn-body-2'> Country</label>
+          <label htmlFor="Country" className='zn-body-2'>{t("COUNTRY")} </label>
           <select name="Country" id="Country" className='zn-input-field '>
             <option value="default" ></option>
             <option value="Syria">Syria</option>
@@ -93,7 +89,7 @@ const SignUpForm = () => {
           </select>
           </div>
           <div className="flex flex-col gap-y-2">
-          <label htmlFor="City" className='zn-body-2 '> City</label>
+          <label htmlFor="City" className='zn-body-2 '>{t("City")} </label>
           <select name="City" id="City" className='zn-input-field'>
             <option value="default"></option>
             <option value="Syria">Syria</option>
@@ -111,11 +107,11 @@ const SignUpForm = () => {
           }
         
           <div className="flex justify-center">
-            {!warrningModle&&<NavLink to={'/verifyPage'}><Button >SIGN UP</Button></NavLink>}
+            {!warrningModle&&<NavLink to={'/verifyPage'}><Button >{t("SIGNUP")}</Button></NavLink>}
           </div>
           <div className="text-center">
-            <span className="zn-body-3">HAVE AN ACCOUNT ?</span>
-            <NavLink to={"/"} className="text-zn-blue-light"><span className="zn-body-3 "> LOG IN</span></NavLink>
+            <span className="zn-body-3">{t("HAVE AN ACCOUNT")} ?</span>
+            <NavLink to={"/"} className="text-zn-blue-light"><span className="zn-body-3 "> {t("LOGIN")}</span></NavLink>
             <a href="#" className="text-zn-blue-light"></a>
           </div>
 

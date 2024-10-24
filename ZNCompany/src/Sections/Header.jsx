@@ -9,11 +9,17 @@ import gsap from 'gsap/all';
 import { MdOutlineLightMode } from "react-icons/md";
 import { GiNightSleep } from "react-icons/gi";
 import { useStore } from '../store';
-
+import { useTranslation } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpApi from 'i18next-http-backend';
 
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
+  const [showSubMenu,setShowSubMenu] = useState(false)
   const [moodModle,setMoodModle] = useState(false)
+  const [languagesMenu,setLanguagesMenu] = useState(false)
   const [navLinks,setNavLinks] = useState({
     home:false,
     about:false,
@@ -23,6 +29,7 @@ const Header = () => {
   const nightMood = useStore((store)=>store.darkMood)
   const setNightMood = useStore((store)=>store.setDarkMood)
 
+  const { t } = useTranslation();
 
   useEffect(()=>{
     if(nightMood){
@@ -67,21 +74,25 @@ const Header = () => {
         setNavLinks({home:false,about:false,projects:true})
   }
 
+  
   return (
   <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[70px] h-[55px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
-    <div className="logo border-r-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
+    <div className="logo border-r-2 border-l-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
       <img src="imgs/logo.png" alt="logo" className='w-[50px]'/>
-      <p className='zn-body-2 text-zn-white max-sm:hidden'>THE CONSTRUCTION AND <br /> LANDSCAPING COMPANY</p>
+      <p className='zn-body-2 text-zn-white max-sm:hidden'>{t("COMPANYFIRSTNAME")}
+        <br />
+        {t("COMPANYSECONDNAME")}
+      </p>
     </div>
     <div className="navList  shrink-0 flex-auto flex flex-row justify-around items-center w-[250px] max-lg:hidden">
       <NavLink to={'/landingPage'}>
-        <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.home})}  onClick={()=>handleNavLink('home')}>HOME</span>
+        <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.home})}  onClick={()=>handleNavLink('home')}>{t("HOME")}</span>
       </NavLink>
       <NavLink to={'/landingPage'}>
-        <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.about})}   onClick={()=>handleNavLink('about')}>ABOUT US</span>
+        <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.about})}   onClick={()=>{handleNavLink('about')} }>{t("ABOUTUS")}</span>
       </NavLink>
       <NavLink to={'/landingPage'}>
-       <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.projects})} onClick={()=>handleNavLink('projects')}>PROJECTS</span>
+       <span className={classNames('zn-body-0-bold text-zn-white',{clicked:navLinks.projects})} onClick={()=>handleNavLink('projects')}>{t("PROJECTS")}</span>
       </NavLink>
 
     </div>
@@ -96,27 +107,51 @@ const Header = () => {
           <div className={classNames('sm:w-6 w-5 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
           <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full bottomMenu-icon')}></div>
         </span>
-        <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>MENU</span>
+        <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>{t("MENU")}</span>
        
-        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[50px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
-        <ul 
-        className ={`header-menu pt-8 pb-4 px-2 2xl:w-[435px] w-[240px] ${showMenu&&'header-menu-show'} `} >
-          <IoClose className='absolute top-[8px] right-[20px] text-2xl cursor-pointer z-10' onClick={()=>setShowMenu(false)}/>
-          <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>HOME</li></NavLink>
-          <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>ABOUT US</li></NavLink>
-          <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light lg:hidden'>PROJECTS</li></NavLink>
-          <NavLink to={'/landingPage'}><li className='py-2 z-body-1  text-center cursor-pointer hover:bg-zn-green-light'>LANDSCAPING</li></NavLink>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>DECKING</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>GARDENING</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>INTERLOCKING</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>FLORALDESIGN</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>POOLS</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>RAILINGS</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>WOODWOORKING</li>
-          <li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>SHOWROOM</li>
-          <NavLink to={'/profilePage'}><li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>PROFILE</li></NavLink>
-          <NavLink to={'/landingPage'}><li className='py-2 z-body-1 text-center cursor-pointer hover:bg-zn-green-light'>CONTACT US</li></NavLink>
-        </ul>
+        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
+          <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
+            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold' onClick={()=>setShowSubMenu(prev=>!prev)}>{t("MAINMENU")}</span>
+              <div className={`subMenu-container  ${showSubMenu&&'subMenu-container-show'}`}>
+                <div className={`subDrop ${!showSubMenu&&'hidden'}`}>
+                    <ul 
+                    className ={`header-menu px-8  w-full ${showMenu&&'header-menu-show'} `} >
+                      
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("HOME")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("ABOUTUS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("PROJECTS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light'>{t("LANDSCAPING")}</li></NavLink>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("DECKING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("GARDENING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("INTERLOCKING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("FLORALDESIGN")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("POOLS")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("RAILINGS")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("WOODWORING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("SHOWRROOM")}</li>
+                      <NavLink to={'/profilePage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("PROFILE")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("CONTACTUS")}</li></NavLink>
+                    </ul>
+                </div>
+              </div>  
+            </li>
+            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold' onClick={()=>setLanguagesMenu(prev=>!prev)}>{t("LANGUAGES")}</span>
+              <div className={`languagesMenu-container max-h-0  ${languagesMenu&&'max-h-40'} duration-300`}>
+                <div className={`subDrop ${!languagesMenu&&'hidden'}`}>
+                    <ul className='py-2 px-8 2xl:w-[435px] w-[240px]'>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
+                      i18n.changeLanguage('ar')
+                      setShowMenu(false)
+                      }}><span >{t("ARABIC")}</span></li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
+                      i18n.changeLanguage('en')
+                      setShowMenu(false)
+                      }}><span>{t("ENGLISH")}</span></li>
+                    </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
         
       </div>
@@ -145,7 +180,7 @@ const Header = () => {
       </div>
       <div className="booking">
       <button className='md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4'>
-        BOOK NOW
+        {t("BOOKNOW")}
       </button>
       </div>
     </div>

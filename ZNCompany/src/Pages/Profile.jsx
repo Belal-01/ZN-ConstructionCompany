@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import { useGSAP } from '@gsap/react'
 import { modleAnimation } from '../Utils/main'
 import { useStore } from '../store'
+import { useTranslation } from 'react-i18next'
+import Cookies from 'js-cookie'
 
 const Profile = () => {
   const [logMessage,setLogMessage] = useState(false)
@@ -12,6 +14,9 @@ const Profile = () => {
     modleAnimation('.modle-content','.modle-body','340px')
 
   },[logMessage])
+  const { t } = useTranslation();
+  const lan = Cookies.get('i18next')|| "en"
+
 
     const navigate = useNavigate();
   return (
@@ -24,7 +29,7 @@ const Profile = () => {
         <div className="flex-1 profileInfo flex flex-row h-fit w-full overflow-visible">
           <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
             <div className="img lg:flex-1 max-md:h-[100px] relative">
-              <div className='2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161px] rounded-full bg-zn-green-dark absolute 2xl:-top-[145px] -top-[80px] sm:left-10 left-6 p-1 relative z-0'>
+              <div className={`2xl:w-[290px] 2xl:h-[290px] w-[161px] h-[161px] rounded-full bg-zn-green-dark absolute 2xl:-top-[145px] -top-[80px] ${lan==='ar'?'sm:right-10 right-6':'sm:left-10 left-6'}  p-1 relative z-0`}>
                 <img src="/imgs/myprofile.png" alt="userImg" className='rounded-full object-fill w-full h-full' loading='lazy' />
                 <span className='absolute bg-zn-white border-2 border-zn-black rounded-md px-2 -bottom-5 left-4'>@bilal-mustafa</span>
               </div>
@@ -33,10 +38,10 @@ const Profile = () => {
             <div className="info flex-1 flex flex-row ">
             <div className='sm:flex-auto max-sm:w-5'> </div>
             <div className=' md:w-[150px] sm:w-[100px] w-[100px]'>
-              <h2 className='zn-body-1-bold text-zn-green-dark py-10 max-md:text-start'>NAME</h2>
-              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>COUNTRY</h2>
-              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>EMAIL</h2>
-              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>PHONE</h2>
+              <h2 className='zn-body-1-bold text-zn-green-dark py-10 max-md:text-start'>{t("NAME")}</h2>
+              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>{t("COUNTRY")}</h2>
+              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>{t("EMAIL")}</h2>
+              <h2 className='zn-body-1-bold text-zn-green-dark pb-10 max-md:text-start'>{t("PHONE")}</h2>
               </div>
             </div>
           </div>
@@ -47,8 +52,8 @@ const Profile = () => {
               <p className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>belalkhobieh343@gmail.com</p>
               <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>+963-000-000-000</h2>
           </div>
-            <button className='md:py-2 py-3 px-9 rounded-md absolute bottom-2 sm:right-8 right-0 border border-zn-black bg-zn-red zn-body-2-bold my-4' onClick={()=>setLogMessage(true)}>
-              LOG OUT
+            <button className={`md:py-2 py-3 px-9 rounded-md absolute bottom-2 ${lan==='ar'?'sm:left-8 left-0':'sm:right-8 right-0'}  border border-zn-black bg-zn-red zn-body-2-bold my-4`} onClick={()=>setLogMessage(true)}>
+              {t("LOGOUT")}
             </button>
           </div>
         </div>
