@@ -102,7 +102,20 @@
   "City":"المدينة",
   "HAVE AN ACCOUNT":"لديك حساب",
   "WE WILL SEND YOU A 6 DIGIT CODE TO VERIFY YOUR ACCOUNT":"سنرسل لك رمزا مكونا من 6 أرقام للتحقق من حسابك",
-  "SEND CODE":"ارسل الرمز"
+  "SEND CODE":"ارسل الرمز",
+  "Night":"الوضع الليلي",
+  "Light":"الوضع النهاري",
+  "INVAlLID FIELDS. TRY AGAIN":"حقول غير صالحة. حاول مرة أخرى",
+  "PLEASE VERIFY YOUR ACCOUNT":"الرجاء التحقق من حسابك",
+  "ENTER THE 6 DIGIT CODE (CONTAINS LETTERS AND NUMBERS) THAT WE SENT TO YOUR EMAIL ADDRESS TO VERIFY YOUR NEW PASSWORD":"أدخل الرمز المكون من 6 أرقام (يحتوي على أحرف وأرقام) الذي أرسلناه إلى عنوان بريدك الإلكتروني للتحقق من كلمة المرور الجديدة الخاصة بك",
+  "VALID FOR 3 MINUTES":"صالحة لمدة 3 دقائق",
+  "RESEND CODE":"إعادة إرسال الرمز",
+  "VERIFY AND CONTINUE":"التحقق والمتابعة",
+  "SIGNED UP":"تم التسجيل",
+  "YOUR ACCOUNT SUCCESSFULLY VERIFIED":"تم التحقق من حسابك بنجاح",
+  "CONTINUE":"استمرار"
+
+  
 
 
   

@@ -14,6 +14,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
+import { IoIosArrowForward } from "react-icons/io";
 
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
@@ -39,6 +40,30 @@ const Header = () => {
       document.body.classList.remove('nightbg')
 
   },[nightMood])
+  useGSAP(()=>{
+    if(showSubMenu)
+    gsap.to('.menuArrow',{
+      rotate:90,
+      duration:.5
+    })
+    else
+    gsap.to('.menuArrow',{
+      rotate:0,
+      duration:.5
+    })
+  },[showSubMenu])
+  useGSAP(()=>{
+    if(languagesMenu)
+    gsap.to('.lanArrow',{
+      rotate:90,
+      duration:.5
+    })
+    else
+    gsap.to('.lanArrow',{
+      rotate:0,
+      duration:.5
+    })
+  },[languagesMenu])
   useGSAP(()=>{
     if(showMenu){
     gsap.to('.topMenu-icon',{
@@ -135,7 +160,7 @@ const Header = () => {
        
         <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
-            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold' onClick={()=>setShowSubMenu(prev=>!prev)}>{t("MAINMENU")}</span>
+            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}><IoIosArrowForward className='menuArrow'/><span>{t("MAINMENU")}</span> </span>
               <div className={`subMenu-container  ${showSubMenu&&'subMenu-container-show'}`}>
                 <div className={`subDrop ${!showSubMenu&&'hidden'}`}>
                     <ul 
@@ -159,7 +184,7 @@ const Header = () => {
                 </div>
               </div>  
             </li>
-            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold' onClick={()=>setLanguagesMenu(prev=>!prev)}>{t("LANGUAGES")}</span>
+            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold flex flex-row items-center gap-x-2' onClick={()=>setLanguagesMenu(prev=>!prev)}><IoIosArrowForward className='lanArrow'/><span>{t("LANGUAGES")}</span></span>
               <div className={`languagesMenu-container max-h-0  ${languagesMenu&&'max-h-40'} duration-300`}>
                 <div className={`subDrop ${!languagesMenu&&'hidden'}`}>
                     <ul className='py-2 px-8 2xl:w-[435px] w-[240px]'>
@@ -191,14 +216,14 @@ const Header = () => {
               
               }}>
               <MdOutlineLightMode className='text-zn-dark text-3xl cursor-pointer'/>
-              <span>Light</span>
+              <span>{t("Light")}</span>
             </li>
             <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{     
               setNightMood(true)
               setMoodModle(false)
             }}>
               <GiNightSleep className='text-zn-dark text-3xl cursor-pointer'/>
-              <span>Night</span>
+              <span>{t("Night")}</span>
             </li>
           </ul>
         </div>}

@@ -11,6 +11,8 @@ import { IoAddSharp } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
+import { useGSAP } from '@gsap/react';
+import { modleAnimation } from '../Utils/main';
 
 
 
@@ -20,7 +22,10 @@ const SignUpForm = () => {
 
   const {t} = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
-  
+  useGSAP(()=>{
+    modleAnimation('.modle-content','.modle-body','340px')
+    
+  },[erorrModle])
 
   return (
     <>
@@ -102,7 +107,7 @@ const SignUpForm = () => {
         </div>
 
           {warrningModle&&<div className='border-2 border-zn-red py-3 text-zn-red zn-body-2 text-center mt-4'>
-            INVAlLID FIELDS. TRY AGAIN
+            {t("INVAlLID FIELDS. TRY AGAIN")}
           </div>
           }
         
@@ -120,16 +125,18 @@ const SignUpForm = () => {
     {erorrModle&&<div className='modle'>
       <div className="overly"></div>
       <div className="modle-content">
-        <h1 className='zn-h-4-semiBold text-center py-5'>ERROR</h1>
+      <div className="modle-body">
+        <h1 className='zn-h-4-semiBold text-center py-5'>{t("ERROR")}</h1>
         <div className="modle-body px-12 text-zn-gray-3">
-        <p className='zn-body-2 text-center'>PLEASE WAIT A FEW MINUTES</p>
-        <p className='zn-body-2 text-center'>BEFORE YOU TRY AGAIN</p>
+        <p className='zn-body-2 text-center'>{t("PLEASE WAIT A FEW MINUTES")}</p>
+        <p className='zn-body-2 text-center'>{t("BEFORE YOU TRY AGAIN")}</p>
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 my-4'/>
         <div className="modle-button flex flex-row justify-center text-zn-red">
-          <button className='zn-body-2 mb-2 '>
-            DISMISS
+          <button className='zn-body-2 mb-2 ' onClick={()=>setErorrModle(false)}>
+            {t("DISMISS")}
           </button>
+        </div>
         </div>
         
       </div>
