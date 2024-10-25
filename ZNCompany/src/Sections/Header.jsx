@@ -15,6 +15,8 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import { IoIosArrowForward } from "react-icons/io";
+import Cookies from 'js-cookie';
+import { IoIosArrowBack } from "react-icons/io";
 
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
@@ -32,6 +34,7 @@ const Header = () => {
   const setNightMood = useStore((store)=>store.setDarkMood)
 
   const { t } = useTranslation();
+  const lan = Cookies.get('i18next')|| "en"
 
   useEffect(()=>{
     if(nightMood){
@@ -51,6 +54,16 @@ const Header = () => {
       rotate:0,
       duration:.5
     })
+    if(showSubMenu)
+      gsap.to('.arMenuArrow',{
+        rotate:-90,
+        duration:.5
+      })
+    else
+      gsap.to('.arMenuArrow',{
+        rotate:0,
+        duration:.5
+    })
   },[showSubMenu])
   useGSAP(()=>{
     if(languagesMenu)
@@ -63,6 +76,16 @@ const Header = () => {
       rotate:0,
       duration:.5
     })
+    if(languagesMenu)
+      gsap.to('.arLanArrow',{
+        rotate:-90,
+        duration:.5
+      })
+      else
+      gsap.to('.arLanArrow',{
+        rotate:0,
+        duration:.5
+      })
   },[languagesMenu])
   useGSAP(()=>{
     if(showMenu){
@@ -160,7 +183,8 @@ const Header = () => {
        
         <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
-            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}><IoIosArrowForward className='menuArrow'/><span>{t("MAINMENU")}</span> </span>
+            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}>
+              {lan==='ar'?<IoIosArrowBack className='arMenuArrow'/>:<IoIosArrowForward className='menuArrow'/>}<span>{t("MAINMENU")}</span> </span>
               <div className={`subMenu-container  ${showSubMenu&&'subMenu-container-show'}`}>
                 <div className={`subDrop ${!showSubMenu&&'hidden'}`}>
                     <ul 
@@ -184,18 +208,31 @@ const Header = () => {
                 </div>
               </div>  
             </li>
-            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold flex flex-row items-center gap-x-2' onClick={()=>setLanguagesMenu(prev=>!prev)}><IoIosArrowForward className='lanArrow'/><span>{t("LANGUAGES")}</span></span>
+            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold flex flex-row items-center gap-x-2' onClick={()=>setLanguagesMenu(prev=>!prev)}>
+            {lan==='ar'?<IoIosArrowBack className='arLanArrow'/>:<IoIosArrowForward className='lanArrow'/>}<span>{t("LANGUAGES")}</span></span>
               <div className={`languagesMenu-container max-h-0  ${languagesMenu&&'max-h-40'} duration-300`}>
                 <div className={`subDrop ${!languagesMenu&&'hidden'}`}>
                     <ul className='py-2 px-8 2xl:w-[435px] w-[240px]'>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('ar')
                       setShowMenu(false)
-                      }}><span >{t("ARABIC")}</span></li>
+                      }}><span >العربية</span></li>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('en')
                       setShowMenu(false)
-                      }}><span>{t("ENGLISH")}</span></li>
+                      }}><span>ENGLISH</span></li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
+                      i18n.changeLanguage('de')
+                      setShowMenu(false)
+                      }}><span>DEUTSCH</span></li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
+                      i18n.changeLanguage('fr')
+                      setShowMenu(false)
+                      }}><span>FRANÇAIS</span></li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
+                      i18n.changeLanguage('zh')
+                      setShowMenu(false)
+                      }}><span>中文</span></li>
                     </ul>
                 </div>
               </div>
