@@ -190,20 +190,20 @@ const Header = () => {
                     <ul 
                     className ={`header-menu px-8  w-full ${showMenu&&'header-menu-show'} `} >
                       
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("HOME")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("ABOUTUS")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden'>{t("PROJECTS")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light'>{t("LANDSCAPING")}</li></NavLink>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("DECKING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("GARDENING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("INTERLOCKING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("FLORALDESIGN")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("POOLS")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("RAILINGS")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("WOODWORING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("SHOWRROOM")}</li>
-                      <NavLink to={'/profilePage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("PROFILE")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light'>{t("CONTACTUS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("HOME")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("ABOUTUS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("PROJECTS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("LANDSCAPING")}</li></NavLink>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("DECKING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("GARDENING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("INTERLOCKING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("FLORALDESIGN")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("POOLS")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("RAILINGS")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("WOODWORING")}</li>
+                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("SHOWRROOM")}</li>
+                      <NavLink to={'/profilePage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("PROFILE")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("CONTACTUS")}</li></NavLink>
                     </ul>
                 </div>
               </div>  
