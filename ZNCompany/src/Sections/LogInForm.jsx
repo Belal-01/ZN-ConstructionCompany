@@ -44,16 +44,16 @@ const LogInForm = () => {
       <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto'>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAILADDRESS")}</label>
-          <div className="relative">
+          <div className="relative ">
           <input type="email" id='email' className='zn-input-field ' placeholder={'EXAMPLE@GMAIL.COM'}/>
-          <MdOutlineMail className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <MdOutlineMail className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5">
           <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
-          <div className="relative">
+          <div className="relative ">
           <input type="password" id='password' className='zn-input-field' placeholder='****************'/>
-          <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
           </div>
           {warrningModle&&<div className='border-2 border-zn-red py-3 text-zn-red zn-body-2 text-center mt-4'>

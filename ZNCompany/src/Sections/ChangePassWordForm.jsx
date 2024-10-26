@@ -22,21 +22,21 @@ const ChangePassWordForm = () => {
         <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
         <div className="relative">
         <input type="email" id='email' className='zn-input-field ' placeholder={'EXAMPLE@GMAIL.COM'}/>
-        <MdOutlineMail className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+        <MdOutlineMail className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
         </div>
       </div>
       <div className="flex flex-col gap-y-2.5 pb-2.5">
         <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
         <div className="relative">
         <input type="password" id='password' className='zn-input-field' placeholder='****************'/>
-        <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+        <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
         </div>
         </div>
       <div className="flex flex-col gap-y-2.5 pb-2.5">
         <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
         <div className="relative">
         <input type="password" id='Re-password' className='zn-input-field' placeholder='****************'/>
-        <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+        <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
         </div>
       </div>
       <div className="text-center">

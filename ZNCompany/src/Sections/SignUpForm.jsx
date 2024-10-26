@@ -37,9 +37,8 @@ const SignUpForm = () => {
          {t("PROFILE PICTURE")}
       </h2>
       <div className="flex flex-row justify-center py-5">
-        <div className="profile w-[110px] h-[110px] rounded-full bg-zn-gray-box relative">
-          <IoPersonOutline className='absolute top-5 left-6 text-[64px] text-zn-gray-2' />
-
+        <div className="profile w-[130px] h-[130px] rounded-full bg-zn-gray-box relative flex flex-row items-center justify-center">
+          <IoPersonOutline className='text-[64px] text-zn-gray-2' />
           <IoAddSharp  className='bg-zn-green w-5 h-6 rounded-sm cursor-pointer text-white outline-2 outline-dotted outline-zn-black outline-offset-1 absolute bottom-0 right-1'/>
           
         </div>
@@ -49,35 +48,35 @@ const SignUpForm = () => {
           <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
           <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'}/>
-          <MdOutlineMail className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <MdOutlineMail className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userNumber" className='zn-body-2'>{t("PHONE NUMBER")}</label>
           <div className="relative">
           <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***'/>
-          <FiPhone className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <FiPhone className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userName" className='zn-body-2'>{t("USERNAME")}</label>
           <div className="relative">
           <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name'/>
-          <IoPersonOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoPersonOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='password' className='zn-input-field' placeholder='****************'/>
-          <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='Re-password' className='zn-input-field' placeholder='****************'/>
-          <IoKeyOutline className={`absolute top-1.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-row gap-x-10">
