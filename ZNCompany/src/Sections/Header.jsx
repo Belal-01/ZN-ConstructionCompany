@@ -155,6 +155,19 @@ const Header = () => {
 
       }
   }
+  useGSAP(()=>{
+    if(moodModle){
+    gsap.to('.moodeModle',{
+      minHeight:'90px',
+      duration:1
+    })
+    gsap.to('.modeMenu',{
+      opacity:1,
+      delay:.3,
+      duration:.5
+    })
+  }
+  },[moodModle])
 
   
   return (
@@ -261,23 +274,21 @@ const Header = () => {
       <div className="switchMood relative">
         <span onClick={()=>setMoodModle(prev=>!prev)}>{nightMood?<GiNightSleep className='dark text-zn-dark text-3xl cursor-pointer'/>:<MdOutlineLightMode className='light text-zn-white text-3xl cursor-pointer'/>
        }</span>
-        {moodModle&&<div className="moodeModle bg-zn-white py-2 px-2 rounded-lg absolute top-16 -left-10">
-          <ul>
+        {moodModle&&<div className="moodeModle bg-zn-white py-2 px-2 rounded-lg absolute top-16 -left-16 h-0 w-[160px]">
+          <ul className='modeMenu opacity-0'>
             <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{
               setNightMood(false)
-              setMoodModle(false)
-              
-              
+              setMoodModle(false)  
               }}>
               <MdOutlineLightMode className='text-zn-dark text-3xl cursor-pointer'/>
-              <span>{t("Light")}</span>
+              <span className='text-start'>{t("Light")}</span>
             </li>
             <li className='px-2 py-1 hover:bg-zn-green-light cursor-pointer flex flex-row items-center justify-between gap-x-4' onClick={()=>{     
               setNightMood(true)
               setMoodModle(false)
             }}>
               <GiNightSleep className='text-zn-dark text-3xl cursor-pointer'/>
-              <span>{t("Night")}</span>
+              <span className='text-start'>{t("Night")}</span>
             </li>
           </ul>
         </div>}
