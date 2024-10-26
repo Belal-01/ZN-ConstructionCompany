@@ -14,7 +14,6 @@ const LogInForm = () => {
 
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
-    
   },[erorrModle])
   const lan = Cookies.get('i18next')|| "en"
   const {t} = useTranslation()
@@ -42,7 +41,7 @@ const LogInForm = () => {
       <div className="flex flex-row justify-center md:py-5 max-md:pb-5 max-md:hidden">
           <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] lg:w-[80px] md:w-[58px] w-[74px] md:h-[71px] h-[70px]'/>
         </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto' onSubmit={()=>navigate('/verifyPage')}>
+      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto' onSubmit={()=>navigate('/profilePage')}>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAILADDRESS")}</label>
           <div className="relative ">
