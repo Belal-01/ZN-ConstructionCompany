@@ -198,7 +198,7 @@ const Header = () => {
         </span>
         <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>{t("MENU")}</span>
        
-        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] -right-16 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
+        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] -right-16 rounded-xl  menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
             <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}>
               {lan==='ar'?<IoIosArrowBack className='arMenuArrow'/>:<IoIosArrowForward className='menuArrow'/>}<span>{t("MAINMENU")}</span> </span>
