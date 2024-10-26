@@ -47,42 +47,42 @@ const SignUpForm = () => {
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
-          <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'}/>
+          <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'} required/>
           <MdOutlineMail className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userNumber" className='zn-body-2'>{t("PHONE NUMBER")}</label>
           <div className="relative">
-          <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***'/>
+          <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***' required/>
           <FiPhone className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userName" className='zn-body-2'>{t("USERNAME")}</label>
           <div className="relative">
-          <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name'/>
+          <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name' required/>
           <IoPersonOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
           <div className="relative">
-          <input type="password" id='password' className='zn-input-field' placeholder='****************'/>
+          <input type="password" id='password' className='zn-input-field' placeholder='****************' required/>
           <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
           <div className="relative">
-          <input type="password" id='Re-password' className='zn-input-field' placeholder='****************'/>
+          <input type="password" id='Re-password' className='zn-input-field' placeholder='****************' required/>
           <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-row gap-x-10">
           <div className="flex flex-col gap-y-2">
           <label htmlFor="Country" className='zn-body-2'>{t("COUNTRY")} </label>
-          <select name="Country" id="Country" className='zn-input-field '>
+          <select name="Country" id="Country" className='zn-input-field ' required>
             <option value="default" ></option>
             <option value="Syria">Syria</option>
             <option value="Iraq">Iraq</option>
@@ -94,7 +94,7 @@ const SignUpForm = () => {
           </div>
           <div className="flex flex-col gap-y-2">
           <label htmlFor="City" className='zn-body-2 '>{t("City")} </label>
-          <select name="City" id="City" className='zn-input-field'>
+          <select name="City" id="City" className='zn-input-field' required>
             <option value="default"></option>
             <option value="Syria">Syria</option>
             <option value="Iraq">Iraq</option>

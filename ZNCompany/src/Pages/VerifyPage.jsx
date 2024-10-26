@@ -34,17 +34,17 @@ const navigate = useNavigate();
       </p>
       <div className="verification-code flex flex-row gap-x-4 py-5">
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
         <input type="number" maxLength={1} name='code' min={0} max={9} 
-        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green'/>
+        className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
       </div>
       <span className='zn-body-2 '>{t("VALID FOR 3 MINUTES")}</span>
       <a href="/" className='zn-body-3 text-zn-blue-light py-4'>{t("RESEND CODE")}</a>
