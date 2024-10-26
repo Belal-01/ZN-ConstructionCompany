@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from '../Components/Button'
 import { IoClose, IoKeyOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
-import { json, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap/all';
@@ -11,9 +11,6 @@ import { GiNightSleep } from "react-icons/gi";
 import { useStore } from '../store';
 import { useTranslation } from 'react-i18next';
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
 import { IoIosArrowForward } from "react-icons/io";
 import Cookies from 'js-cookie';
 import { IoIosArrowBack } from "react-icons/io";
@@ -148,7 +145,7 @@ const Header = () => {
 
   
   return (
-  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[70px] h-[55px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
+  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[70px] h-[65px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
     <div className="logo border-r-2 border-l-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
       <img src="imgs/logo.png" alt="logo" className='w-[50px]'/>
       <p className='zn-body-2 text-zn-white max-sm:hidden'>{t("COMPANYFIRSTNAME")}
@@ -170,7 +167,7 @@ const Header = () => {
     </div>
     <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3">
     <div className="relative">
-          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-[70px] pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
+          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-5 pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
           <IoSearch className='absolute top-1.5 left-1.5 ' />
     </div>
       <div className="menu flex flex-row items-center gap-x-3 relative">

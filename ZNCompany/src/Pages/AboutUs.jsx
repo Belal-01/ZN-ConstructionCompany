@@ -7,7 +7,7 @@ const AboutUs = () => {
   const {t} = useTranslation()
   return (
     <>
-    <div>
+    <section id='aboutUs'> 
         <div className={`service-title 2xl:h-[178px] sm:h-[110px] h-[80px] ${nightMood?'bg-zn-blue':'bg-zn-blue-light'} flex flex-col justify-center`}>
           <h1 className={`zn-h-3 px-10 ${nightMood&&'text-zn-white'}`}>{t("ABOUT US AND OUR SERVICES")}</h1>
         </div>
@@ -44,7 +44,7 @@ const AboutUs = () => {
           </video>
         </div>
 
-    </div>
+    </section>
     </>
   )
 }

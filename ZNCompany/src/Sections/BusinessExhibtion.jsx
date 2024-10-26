@@ -15,7 +15,7 @@ const handlePassingData = (title ,slides)=>{
   const {t} = useTranslation()
   return (
     <>
-    <div>
+    <section id='projects'>
         <div className={`service-title 2xl:h-[178px] sm:h-[110px] h-[80px] ${nightMood?'bg-zn-blue':'bg-zn-blue-light'} ${nightMood&&'text-zn-white'} flex flex-col justify-center`}>
           <h1 className='zn-h-3 px-10'>{t("BUSINESS EXHIBTION")}</h1>
         </div>
@@ -49,7 +49,7 @@ const handlePassingData = (title ,slides)=>{
               </div>
           </div>
         </div>
-    </div>
+    </section>
     </>
   )
 }
