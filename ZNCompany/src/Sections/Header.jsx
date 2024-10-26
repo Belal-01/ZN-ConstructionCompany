@@ -20,6 +20,7 @@ const Header = () => {
   const [showSubMenu,setShowSubMenu] = useState(false)
   const [moodModle,setMoodModle] = useState(false)
   const [languagesMenu,setLanguagesMenu] = useState(false)
+  const [searchModle,setSearchModle] = useState(false)
   const [navLinks,setNavLinks] = useState(JSON.parse(localStorage.getItem('navLinks'))||{
     home:false,
     about:false,
@@ -125,6 +126,18 @@ const Header = () => {
 
     })
   },[nightMood])
+  useGSAP(()=>{
+    if(searchModle)
+    gsap.to('.searchModle',{
+      minWidth:'200px',
+      duration:.8
+    })
+    else
+    gsap.to('.searchModle',{
+      maxWidth:'0px',
+      duration:.8
+    })
+  },[searchModle])
  
   const handleNavLink = (link)=>{
       if(link==='home'){
@@ -167,10 +180,17 @@ const Header = () => {
     </div>
     <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3">
     <div className="relative">
-          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-5 pl-8 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
+          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-7 pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
           <IoSearch className='absolute top-1.5 left-1.5 ' />
+
+        { searchModle&& <div className="searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] w-0 sm:hidden border rounded-md">
+          <div className="relative w-full">
+          <input type="search" id='search' className=' rounded-md h-7 py-0 w-full pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
+          <IoSearch className='absolute top-1.5 left-1.5 '/>
+          </div>
+          </div>}
     </div>
-      <div className="menu flex flex-row items-center gap-x-3 relative">
+      <div className="menu flex flex-row items-center gap-x-2 relative">
         <span className='flex flex-col justify-between cursor-pointer min-h-6' onClick={()=>setShowMenu(prev=>!prev)}> 
           <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full topMenu-icon')}></div>
           <div className={classNames('sm:w-6 w-5 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
