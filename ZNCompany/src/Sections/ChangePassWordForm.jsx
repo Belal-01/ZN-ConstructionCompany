@@ -17,7 +17,7 @@ const ChangePassWordForm = () => {
     <h1 className='zn-h-3-bold py-[35px] text-center'>
       {t("CHANGEPASSWORD")}
     </h1>
-    <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto'>
+    <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto' onSubmit={()=>navigate('/verifyPage')}>
       <div className="flex flex-col gap-y-2.5 py-2.5">
         <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
         <div className="relative">
@@ -43,7 +43,7 @@ const ChangePassWordForm = () => {
         <span className="zn-body-3">{t("WE WILL SEND YOU A 6 DIGIT CODE TO VERIFY YOUR ACCOUNT")}</span>
       </div>
         <div className="flex justify-center">
-          <span onClick={()=>{navigate('/verifyPage')}}>
+          <span >
           <Button >{t("SEND CODE")}</Button>
           </span>
         </div>

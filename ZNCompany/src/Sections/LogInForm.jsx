@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import { IoKeyOutline } from "react-icons/io5";
 import Button from '../Components/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import { modleAnimation } from '../Utils/main';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +18,7 @@ const LogInForm = () => {
   },[erorrModle])
   const lan = Cookies.get('i18next')|| "en"
   const {t} = useTranslation()
+  const navigate = useNavigate()
   return (
     <>
     <section className="2xl:py-[100px] md:py-[60px] py-[40px] h-full bg-zn-white">
@@ -41,7 +42,7 @@ const LogInForm = () => {
       <div className="flex flex-row justify-center md:py-5 max-md:pb-5 max-md:hidden">
           <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] lg:w-[80px] md:w-[58px] w-[74px] md:h-[71px] h-[70px]'/>
         </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto'>
+      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[260px] m-auto' onSubmit={()=>navigate('/verifyPage')}>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAILADDRESS")}</label>
           <div className="relative ">
@@ -73,9 +74,7 @@ const LogInForm = () => {
           </div>
           </div>
           <div className="flex justify-center">
-            <NavLink to={'/profilePage'}>
-             <Button >{t("LOGIN")}</Button>
-            </NavLink>
+            <button className='zn-button'>{t("LOGIN")}</button>
           </div>
 
       </form>

@@ -8,7 +8,7 @@ import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
 import { IoPersonOutline } from "react-icons/io5";
 import { FiPhone } from "react-icons/fi";
 import { IoAddSharp } from "react-icons/io5";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 import { useGSAP } from '@gsap/react';
@@ -22,6 +22,7 @@ const SignUpForm = () => {
 
   const {t} = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
+  const navigate = useNavigate()
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
     
@@ -43,7 +44,7 @@ const SignUpForm = () => {
           
         </div>
       </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto'>
+      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto' onSubmit={()=>navigate('/verifyPage')}>
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
@@ -96,11 +97,11 @@ const SignUpForm = () => {
           <label htmlFor="City" className='zn-body-2 '>{t("City")} </label>
           <select name="City" id="City" className='zn-input-field' required>
             <option value="default"></option>
-            <option value="Syria">Syria</option>
-            <option value="Iraq">Iraq</option>
-            <option value="Jorden">Jorden</option>
-            <option value="Egypt">Egypt</option>
-            <option value="Saudi">Saudi Arab</option>
+            <option value="Syria">Damascus</option>
+            <option value="Iraq">Homs</option>
+            <option value="Jorden">Aleppo</option>
+            <option value="Egypt">Latakia</option>
+            <option value="Saudi">Tartous</option>
           </select>
           </div>
         </div>
@@ -111,12 +112,15 @@ const SignUpForm = () => {
           }
         
           <div className="flex justify-center">
-            {!warrningModle&&<NavLink to={'/verifyPage'}><Button >{t("SIGNUP")}</Button></NavLink>}
+            {/* {!warrningModle&&
+            <button type='submit' className='zn-button' onClick={()=>navigate('/verifyPage')}>{t("SIGNUP")}</button>
+            } */}
+            <button type='submit' className='zn-button'>{t("SIGNUP")}</button>
           </div>
           <div className="text-center">
             <span className="zn-body-3">{t("HAVE AN ACCOUNT")} ?</span>
             <NavLink to={"/"} className="text-zn-blue-light"><span className="zn-body-3 "> {t("LOGIN")}</span></NavLink>
-            <a href="#" className="text-zn-blue-light"></a>
+            
           </div>
 
       </form>

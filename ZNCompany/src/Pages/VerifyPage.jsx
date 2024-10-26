@@ -32,6 +32,9 @@ const navigate = useNavigate();
          {t("ENTER THE 6 DIGIT CODE (CONTAINS LETTERS AND NUMBERS) THAT WE SENT TO YOUR EMAIL ADDRESS TO VERIFY YOUR NEW PASSWORD")}
    
       </p>
+      <form action="" onSubmit={(e)=>{
+        e.preventDefault()
+        setSuccessModle(true)}}>
       <div className="verification-code flex flex-row gap-x-4 py-5">
         <input type="number" maxLength={1} name='code' min={0} max={9} 
         className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
@@ -46,12 +49,14 @@ const navigate = useNavigate();
         <input type="number" maxLength={1} name='code' min={0} max={9} 
         className='code-input w-6 h-8 rounded-md bg-zn-gray-box text-center focus:border-zn-green' required/>
       </div>
-      <span className='zn-body-2 '>{t("VALID FOR 3 MINUTES")}</span>
-      <a href="/" className='zn-body-3 text-zn-blue-light py-4'>{t("RESEND CODE")}</a>
-
-      <div className="verify-btn">
-       <span onClick={()=>setSuccessModle(true)}><Button>{t("VERIFY AND CONTINUE")}</Button></span> 
+      <div className="flex flex-col justify-center items-center">
+      <span className='zn-body-2 '>{t("VALID FOR 3 MINUTES")} </span>
+      <a  className='zn-body-3 text-zn-blue-light py-4 cursor-pointer'> {t("RESEND CODE")}</a>
       </div>
+      <div className="verify-btn">
+       <button type='submit' className='zn-button'>{t("VERIFY AND CONTINUE")}</button>
+      </div>
+    </form>
     </div>
     {erorrModle&&<div className='modle'>
       <div className="overly"></div>
