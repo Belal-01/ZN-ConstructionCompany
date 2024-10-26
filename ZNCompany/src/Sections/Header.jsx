@@ -183,7 +183,7 @@ const Header = () => {
           <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-7 pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
           <IoSearch className='absolute top-1.5 left-1.5 ' />
 
-        { searchModle&& <div className="searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] w-0 sm:hidden border rounded-md">
+        { searchModle&& <div className={`searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] ${lan==='ar'?'-right-[60px]':'-left-[60px]'} w-0 sm:hidden border rounded-md`}>
           <div className="relative w-full">
           <input type="search" id='search' className=' rounded-md h-7 py-0 w-full pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
           <IoSearch className='absolute top-1.5 left-1.5 '/>
@@ -198,7 +198,7 @@ const Header = () => {
         </span>
         <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>{t("MENU")}</span>
        
-        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] right-0 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
+        <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] -right-16 rounded-tl-xl rounded-bl-xl menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
             <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}>
               {lan==='ar'?<IoIosArrowBack className='arMenuArrow'/>:<IoIosArrowForward className='menuArrow'/>}<span>{t("MAINMENU")}</span> </span>
