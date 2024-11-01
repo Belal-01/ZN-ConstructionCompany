@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useAuth } from '../Components/Auth';
+import { useStore } from '../store';
 
 const LogInForm = ({routPath}) => {
   const [erorrModle,setErorrModle] = useState(false);
@@ -56,26 +57,27 @@ const LogInForm = ({routPath}) => {
     // navigate('/profilePage')
     })
   },[])
+  const darkMood = useStore((store)=>store.darkMood)
  
 
   return (
     <>
-    <section className="2xl:py-[150px] xl:py-[80px] md:py-[60px] py-[40px] h-full bg-zn-white  ">
+    <section className="2xl:py-[150px] xl:py-[80px] md:py-[60px] py-[40px] h-full   ">
       <div className='max-md:absolute top-12 left-0 right-0 max-md:h-[300px] z-20 flex justify-center items-center'>
         <div className='max-md:flex max-md:flex-col max-md:justify-center max-md:w-[250px] max-md:h-[250px] max-md:rounded-full max-md:bg-zn-gray-box  text-[64px] z-10'>       
           <div className="flex flex-row justify-center md:py-5 max-md:pb-5 md:hidden">
             <img src="/imgs/logo.png" alt="logo" className='2xl:w-[143px] md:w-[88px] md:h-[70px] max-md:w-[88px] max-md:h-[70px]'/>
           </div>
-          <h2 className='text-center zn-body-1-bold md:hidden'>
+          <h2 className={`text-center zn-body-1-bold md:hidden `}>
           {t("REINVENTYOURSPACEWITHUS")}
           </h2>
         </div>
       </div>
 
-      <h1 className='zn-h-1-bold pb-5 text-center'>
+      <h1 className={`zn-h-1-bold pb-5 text-center ${darkMood?'text-white':''}`}>
       {t("WELCOME")}
         </h1>
-      <h2 className='text-center zn-h-3-bold max-md:hidden'>
+      <h2 className={`text-center zn-h-3-bold max-md:hidden ${darkMood?'text-white':''}`}>
       {t("REINVENTYOURSPACEWITHUS")}
       </h2>
       <div className="flex flex-row justify-center md:py-5 max-md:pb-5 max-md:hidden">
@@ -83,14 +85,14 @@ const LogInForm = ({routPath}) => {
         </div>
       <form action="" id='logInForm' className='2xl:w-[478px] xl:w-[350px] lg:w-[267px] w-[260px] m-auto' >
         <div className="flex flex-col gap-y-2.5 py-2.5">
-          <label htmlFor="email" className='zn-body-2'>{t("EMAILADDRESS")}</label>
+          <label htmlFor="email" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("EMAILADDRESS")}</label>
           <div className="relative ">
-          <input type="email" id='email' className='zn-input-field ' placeholder={'EXAMPLE@GMAIL.COM'} required />
+          <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'} required />
           <MdOutlineMail className={`absolute top-2.5 2xl:pt-4 2xl:text-2xl  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5">
-          <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
+          <label htmlFor="password" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("PASSWORD")}</label>
           <div className="relative ">
           <input type="password" id='password' className='zn-input-field' placeholder='****************' required/>
           <IoKeyOutline className={`absolute top-2.5 2xl:pt-4 2xl:text-2xl  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
@@ -102,12 +104,12 @@ const LogInForm = ({routPath}) => {
           }
           <div className="mt-4">
           <div className="text-center">
-            <span className="zn-body-3">{t("DON'THAVEANACCOUNT")} ?</span>
+            <span className={`zn-body-3 ${darkMood?'text-white':''}`}>{t("DON'THAVEANACCOUNT")} ? </span>
             <NavLink to={'/signInPage/signInForm'} className="text-zn-blue-light"><span className="zn-body-3 ">{t("SIGNUP")} </span></NavLink>
             
           </div>
           <div className='text-center'>
-            <span className="zn-body-3">{t("FORGOTPASSWORD")} ?</span>
+            <span className={`zn-body-3 ${darkMood?'text-white':''}`}>{t("FORGOTPASSWORD")} ? </span>
             <NavLink to={'/signInPage/changePasswordForm'} className="text-zn-blue-light"><span className="zn-body-3 ">{t("CHANGEPASSWORD")} </span></NavLink>
             <a href="#" ></a>
           </div>

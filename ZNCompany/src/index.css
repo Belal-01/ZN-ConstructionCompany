@@ -141,7 +141,7 @@ display: none;
 
  }
  .zn-button{
-  @apply 2xl:py-4 md:py-3 py-3 xl:px-14 px-8 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
+  @apply 2xl:py-4 md:py-3 py-3 xl:px-14 px-8 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4 ;
  }
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 z-30;

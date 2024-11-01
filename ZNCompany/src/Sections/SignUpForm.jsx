@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import { useGSAP } from '@gsap/react';
 import { modleAnimation } from '../Utils/main';
 import axios from 'axios';
+import { useStore } from '../store';
 
 
 
@@ -24,6 +25,7 @@ const SignUpForm = () => {
   const lan = Cookies.get('i18next')|| "en"
   const navigate = useNavigate()
   const signUpForm = useRef()
+  const darkMood = useStore((store)=>store.darkMood)
 
   
   useGSAP(()=>{
@@ -85,11 +87,11 @@ const SignUpForm = () => {
 
   return (
     <>
-    <section className="2xl:py-[100px] py-[30px] h-full bg-zn-white">
-      <h1 className='zn-h-3-bold  text-center'>
+    <section className="2xl:py-[100px] py-[30px] h-full">
+      <h1 className={`zn-h-3-bold text-center ${darkMood?'text-white':''}`}>
         {t("SIGNUP")}
       </h1>
-      <h2 className='text-center zn-body-2'>
+      <h2 className={`text-center zn-body-2 pt-2 ${darkMood?'text-white':''}`}>
          {t("PROFILE PICTURE")}
       </h2>
       <div className="flex flex-row justify-center py-5">
@@ -101,35 +103,35 @@ const SignUpForm = () => {
       </div>
       <form action="" id='signUpForm' ref={signUpForm}  className='2xl:w-[478px] xl:w-[350px] lg:w-[267px] w-[265px] m-auto'  >
         <div className="flex flex-col gap-y-2.5 py-2.5">
-          <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
+          <label htmlFor="email" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
           <input type="email" id='email' className='zn-input-field'  placeholder={'EXAMPLE@GMAIL.COM'} required/>
           <MdOutlineMail className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="userNumber" className='zn-body-2'>{t("PHONE NUMBER")}</label>
+          <label htmlFor="userNumber" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("PHONE NUMBER")}</label>
           <div className="relative">
           <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***' required/>
           <FiPhone className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="userName" className='zn-body-2'>{t("USERNAME")}</label>
+          <label htmlFor="userName" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("USERNAME")}</label>
           <div className="relative">
           <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name' required/>
           <IoPersonOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
+          <label htmlFor="password" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='password' className='zn-input-field' placeholder='****************' required/>
           <IoKeyOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
-          <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
+          <label htmlFor="Re-password" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("RE-ENTER PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='Re-password' className='zn-input-field' placeholder='****************' required/>
           <IoKeyOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
@@ -137,7 +139,7 @@ const SignUpForm = () => {
         </div>
         <div className="flex flex-row gap-x-10 justify-around">
           <div className="flex flex-col gap-y-2">
-          <label htmlFor="Country" className='zn-body-2'>{t("COUNTRY")} </label>
+          <label htmlFor="Country" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("COUNTRY")} </label>
           <select name="Country" id="Country" className='zn-input-field ' required>
             <option value="default" ></option>
             <option value="Syria">Syria</option>
@@ -149,7 +151,7 @@ const SignUpForm = () => {
           </select>
           </div>
           <div className="flex flex-col gap-y-2">
-          <label htmlFor="City" className='zn-body-2 '>{t("City")} </label>
+          <label htmlFor="City" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("City")} </label>
           <select name="City" id="City" className='zn-input-field' required>
             <option value="default"></option>
             <option value="Syria">Damascus</option>
@@ -167,11 +169,12 @@ const SignUpForm = () => {
           }
         
           <div className="flex justify-center pt-4">
-            <button type='submit' className='zn-button'>{t("SIGNUP")}</button>
+            <button type='submit' className={`zn-button`}>{t("SIGNUP")}</button>
           </div>
           <div className="text-center">
-            <span className="zn-body-3">{t("HAVE AN ACCOUNT")} ?</span>
-            <NavLink to={"/"} className="text-zn-blue-light"><span className="zn-body-3 "> {t("LOGIN")}</span></NavLink>
+            <span className={`zn-body-3 ${darkMood?'text-white':''}`}>{t("HAVE AN ACCOUNT")} ? </span>
+            <NavLink to={"/"} className="text-zn-blue-light">
+            <span className={`zn-body-2 `}> {t("LOGIN")}</span></NavLink>
             
           </div>
 
