@@ -20,9 +20,10 @@ import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Cookies from 'js-cookie'
+import { AuthProvider } from './Components/Auth'
+import RequerAuth from './Components/RequerAuth'
 
-export const  CurrentWindowWidth = createContext()
-export const CurrentWindowHeight = createContext()
+
 
 
 i18n
@@ -52,15 +53,13 @@ i18n
 
 
 function App() {
-  const [windowWidth,setWindowWidth] = useState(window.innerWidth)
-  const [windowHeight,setWindowHeight] = useState(window.innerHeight)
+  // localStorage.setItem('authToken',JSON.stringify({token:null}))
+
+
   const { t } = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
  useEffect(()=>{
-window.addEventListener('resize',()=>{
-  setWindowWidth(window.innerWidth)
-  setWindowHeight(window.innerHeight)
-})
+
  },[])
 
  useEffect(()=>{
@@ -68,34 +67,39 @@ window.addEventListener('resize',()=>{
  },[lan])
   return (
 
-    <>
-
-      {/* <h2>{t('HOME')}</h2>
-      <button onClick={()=>{i18n.changeLanguage('ar')}}>ara</button>
-      <button onClick={()=>{i18n.changeLanguage('en')}}>eng</button> */}
-    <CurrentWindowHeight.Provider value={windowHeight}>
-      <CurrentWindowWidth.Provider value={windowWidth}>
-      
+    <> 
         <BrowserRouter>
-        <Header />
-          <Routes>
-          
-            <Route path='/' element={<LogInPage />} />
-            <Route path='/signInPage' element={<SignUpPage />}>
-              <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
-              <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />
-            </Route>
-            <Route path='/verifyPage' element={<VerifyPage />}/>
-            <Route path='/profilePage' element={<Profile />}/>
-            <Route path='/landingPage' element={<LandingPage />}/>
-            <Route path='/viewAllPage' element={<ViewAllPage />}/>
-            <Route path='/productInfo' element = {<ProductInfo />} />          
-          </Routes>
-        
+          <AuthProvider>
+          <Header />
+            <Routes>
+            
+              <Route path='/' element={<LogInPage />} />
+              <Route path='/signInPage' element={<SignUpPage />}>
+                <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
+                <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />
+              </Route>
+              <Route path='/verifyPage' element={<VerifyPage />}/>
+              <Route path='/profilePage' element={
+                <RequerAuth>
+                  <Profile />
+                </RequerAuth>
+                }/>
+              <Route path='/landingPage' element={
+                <RequerAuth>
+                <LandingPage />
+                </RequerAuth>}/>
+              <Route path='/viewAllPage' element={
+                <RequerAuth >
+                <ViewAllPage />
+                </RequerAuth>}/>
+              <Route path='/productInfo' element = {
+                <RequerAuth>
+                  <ProductInfo />
+                </RequerAuth>} />          
+            </Routes>
+          </AuthProvider>
         </BrowserRouter>
 
-      </CurrentWindowWidth.Provider>
-    </CurrentWindowHeight.Provider>
     </>
   )
 }

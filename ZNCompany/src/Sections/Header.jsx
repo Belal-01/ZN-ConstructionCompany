@@ -14,6 +14,7 @@ import i18n from "i18next";
 import { IoIosArrowForward } from "react-icons/io";
 import Cookies from 'js-cookie';
 import { IoIosArrowBack } from "react-icons/io";
+import axios from 'axios';
 
 const Header = () => {
   const [showMenu,setShowMenu] = useState(false);
@@ -168,6 +169,7 @@ const Header = () => {
     })
   }
   },[moodModle])
+  
 
   
   return (
@@ -213,32 +215,32 @@ const Header = () => {
        
         <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] -right-16 rounded-xl  menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
-            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}>
+            <li className=' cursor-pointer w-full'><span  className='py-2 z-body-1 px-2  hover:bg-zn-green-dark w-full h-full block font-bold flex flex-row items-center gap-x-2' onClick={()=>setShowSubMenu(prev=>!prev)}>
               {lan==='ar'?<IoIosArrowBack className='arMenuArrow'/>:<IoIosArrowForward className='menuArrow'/>}<span>{t("MAINMENU")}</span> </span>
               <div className={`subMenu-container  ${showSubMenu&&'subMenu-container-show'}`}>
                 <div className={`subDrop ${!showSubMenu&&'hidden'}`}>
                     <ul 
                     className ={`header-menu px-8  w-full ${showMenu&&'header-menu-show'} `} >
                       
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("HOME")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("ABOUTUS")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("PROJECTS")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2  cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("LANDSCAPING")}</li></NavLink>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("DECKING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("GARDENING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("INTERLOCKING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("FLORALDESIGN")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("POOLS")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("RAILINGS")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("WOODWORING")}</li>
-                      <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("SHOWRROOM")}</li>
-                      <NavLink to={'/profilePage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("PROFILE")}</li></NavLink>
-                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("CONTACTUS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 px-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("HOME")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 px-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("ABOUTUS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 px-2  cursor-pointer hover:bg-zn-green-light lg:hidden' onClick={()=>setShowMenu(false)}>{t("PROJECTS")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 px-2  cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("LANDSCAPING")}</li></NavLink>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("DECKING")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("GARDENING")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("INTERLOCKING")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("FLORALDESIGN")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("POOLS")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("RAILINGS")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("WOODWORING")}</li>
+                      <li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("SHOWRROOM")}</li>
+                      <NavLink to={'/profilePage'}><li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("PROFILE")}</li></NavLink>
+                      <NavLink to={'/landingPage'}><li className='py-2 z-body-1 px-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>setShowMenu(false)}>{t("CONTACTUS")}</li></NavLink>
                     </ul>
                 </div>
-              </div>  
+              </div> 
             </li>
-            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green block font-bold flex flex-row items-center gap-x-2' onClick={()=>setLanguagesMenu(prev=>!prev)}>
+            <li className='  cursor-pointer w-full'><span className='h-full w-full py-2 z-body-1 px-2 hover:bg-zn-green-dark block font-bold flex flex-row items-center gap-x-2' onClick={()=>setLanguagesMenu(prev=>!prev)}>
             {lan==='ar'?<IoIosArrowBack className='arLanArrow'/>:<IoIosArrowForward className='lanArrow'/>}<span>{t("LANGUAGES")}</span></span>
               <div className={`languagesMenu-container max-h-0  ${languagesMenu&&'max-h-40'} duration-300`}>
                 <div className={`subDrop ${!languagesMenu&&'hidden'}`}>

@@ -1,10 +1,8 @@
-import React ,{useState} from 'react'
+import React ,{useEffect, useRef, useState} from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import { IoKeyOutline } from "react-icons/io5";
 import Button from '../Components/Button';
-import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth } from '../Constants'
-import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
+
 import { IoPersonOutline } from "react-icons/io5";
 import { FiPhone } from "react-icons/fi";
 import { IoAddSharp } from "react-icons/io5";
@@ -13,6 +11,8 @@ import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 import { useGSAP } from '@gsap/react';
 import { modleAnimation } from '../Utils/main';
+import axios from 'axios';
+
 
 
 
@@ -23,10 +23,65 @@ const SignUpForm = () => {
   const {t} = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
   const navigate = useNavigate()
+  const signUpForm = useRef()
+
+  
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
     
   },[erorrModle])
+
+  // sihnUp api request methode
+  const signUp = async(data)=>{
+    const url = "https://backendsec3.trainees-mad-s.com/api/register"
+    try {
+      const response = await axios.post(url, data, {
+          headers: {
+              'Content-Type': 'application/json' // Set content type if needed
+          }
+      });
+      
+      console.log('Response:', response.data);
+      console.log(response.status)
+      const data2 = JSON.parse(data)
+      if(response.status===200){
+        navigate('/verifyPage',{state:{email:data2.email,requestType:'verifyRegisterRequest'}})
+       }
+  } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
+      setWarrningModle(true)
+      setTimeout(()=>{
+        setWarrningModle(false)
+       },3000)
+  }
+  }
+
+  useEffect(()=>{
+ const form = document.getElementById("signUpForm").addEventListener('submit',(e)=>{
+  e.preventDefault()
+  const email = document.getElementById('email').value
+  const userName = document.getElementById('userName').value
+  const phone = document.getElementById('userNumber').value
+  const password = document.getElementById('password').value
+  const country = document.getElementById('Country').value
+  const city = document.getElementById('City').value
+
+  const data = JSON.stringify({
+    full_name:userName,
+    email:email,
+    phone,
+    password,
+    city:country,
+    address:city,
+
+  }) 
+
+  signUp(data)
+  
+ })
+  },[])
+
+//  console.log(signUpForm)
 
   return (
     <>
@@ -38,49 +93,49 @@ const SignUpForm = () => {
          {t("PROFILE PICTURE")}
       </h2>
       <div className="flex flex-row justify-center py-5">
-        <div className="profile w-[130px] h-[130px] rounded-full bg-zn-gray-box relative flex flex-row items-center justify-center">
+        <div className="profile xl:w-[180px] xl:h-[180px] w-[130px] h-[130px] rounded-full bg-zn-gray-box relative flex flex-row items-center justify-center">
           <IoPersonOutline className='text-[64px] text-zn-gray-2' />
           <IoAddSharp  className='bg-zn-green w-5 h-6 rounded-sm cursor-pointer text-white outline-2 outline-dotted outline-zn-black outline-offset-1 absolute bottom-0 right-1'/>
           
         </div>
       </div>
-      <form action="" className='2xl:w-[478px] lg:w-[267px] w-[265px] m-auto' onSubmit={()=>navigate('/verifyPage')}>
+      <form action="" id='signUpForm' ref={signUpForm}  className='2xl:w-[478px] xl:w-[350px] lg:w-[267px] w-[265px] m-auto'  >
         <div className="flex flex-col gap-y-2.5 py-2.5">
           <label htmlFor="email" className='zn-body-2'>{t("EMAIL ADDRESS")}</label>
           <div className="relative">
-          <input type="email" id='email' className='zn-input-field' placeholder={'EXAMPLE@GMAIL.COM'} required/>
-          <MdOutlineMail className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <input type="email" id='email' className='zn-input-field'  placeholder={'EXAMPLE@GMAIL.COM'} required/>
+          <MdOutlineMail className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userNumber" className='zn-body-2'>{t("PHONE NUMBER")}</label>
           <div className="relative">
           <input type="number" id='userNumber' className='zn-input-field' placeholder='+963 *** *** ***' required/>
-          <FiPhone className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <FiPhone className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="userName" className='zn-body-2'>{t("USERNAME")}</label>
           <div className="relative">
           <input type="text" id='userName' className='zn-input-field' placeholder='@USER-Name' required/>
-          <IoPersonOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoPersonOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="password" className='zn-body-2'>{t("PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='password' className='zn-input-field' placeholder='****************' required/>
-          <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoKeyOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
         <div className="flex flex-col gap-y-2.5 pb-2.5">
           <label htmlFor="Re-password" className='zn-body-2'>{t("RE-ENTER PASSWORD")}</label>
           <div className="relative">
           <input type="password" id='Re-password' className='zn-input-field' placeholder='****************' required/>
-          <IoKeyOutline className={`absolute top-2.5  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
+          <IoKeyOutline className={`absolute top-2.5 2xl:text-2xl 2xl:top-4  ${lan==='ar'? 'right-1.5':'left-1.5'} `} />
           </div>
         </div>
-        <div className="flex flex-row gap-x-10">
+        <div className="flex flex-row gap-x-10 justify-around">
           <div className="flex flex-col gap-y-2">
           <label htmlFor="Country" className='zn-body-2'>{t("COUNTRY")} </label>
           <select name="Country" id="Country" className='zn-input-field ' required>
@@ -111,10 +166,7 @@ const SignUpForm = () => {
           </div>
           }
         
-          <div className="flex justify-center">
-            {/* {!warrningModle&&
-            <button type='submit' className='zn-button' onClick={()=>navigate('/verifyPage')}>{t("SIGNUP")}</button>
-            } */}
+          <div className="flex justify-center pt-4">
             <button type='submit' className='zn-button'>{t("SIGNUP")}</button>
           </div>
           <div className="text-center">

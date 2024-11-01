@@ -1,13 +1,13 @@
 import React from 'react'
 import Service from './Service'
-import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth, interiorCladdingSections, landscapingdepartment } from '../Constants'
-import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
+
+import { interiorCladdingSections, landscapingdepartment } from '../Constants'
+
 import AboutUs from './AboutUs'
 import BusinessExhibtion from '../Sections/BusinessExhibtion'
 import ContactUs from '../Sections/ContactUs'
 import Footer from '../Sections/Footer'
-import Header from '../Sections/Header'
+
 import { useTranslation } from 'react-i18next'
 const LandingPage = () => {
 

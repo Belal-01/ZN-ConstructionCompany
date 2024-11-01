@@ -7,7 +7,7 @@ const SignUpPage = () => {
   return (
     <>
     <Navbar />
-    <div className="flex flex-row max-md:flex-col  w-full h-fit max-md:h-fit items-stretch max-md:items-center">
+    <div className="flex flex-row max-md:flex-col w-full min-h-full max-md:h-fit items-stretch max-md:items-center">
       <div className="login-img flex-1 relative max-md:h-[300px] w-full ">
         <img src="/imgs/SingUp-1.png" alt="LoginImg" className='w-full h-full max-md:h-[300px]' loading='lazy'/>
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center ">

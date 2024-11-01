@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
-import { dynamicHieght, dynamicWidth} from '../Constants'
-import { CurrentWindowHeight, CurrentWindowWidth } from '../App'
+
 import { FaRegHeart } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa6";
 import { useLocation } from 'react-router';

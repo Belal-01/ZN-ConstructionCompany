@@ -1,30 +1,55 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { useGSAP } from '@gsap/react'
 import { modleAnimation } from '../Utils/main'
 import { useStore } from '../store'
 import { useTranslation } from 'react-i18next'
 import Cookies from 'js-cookie'
+import axios from 'axios'
 
 const Profile = () => {
   const [logMessage,setLogMessage] = useState(false)
   const nightMood = useStore((store)=>store.darkMood)
-
+  const location = useLocation()
+  const LogToken = location.state || ""
+  const setUserToken = useStore((store)=>store.setUserToken)
+  const userToken = useStore((store)=>store.userToken)
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
-
   },[logMessage])
   const { t } = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
-
-
     const navigate = useNavigate();
+    
+    const LogOutApi = async()=>{
+      console.log(userToken)
+
+      const url = "https://backendsec3.trainees-mad-s.com/api/logout"
+      try {
+        const response = await axios.get(url, {
+            headers: {
+                 //Set content type if needed
+                'Authorization':`Bearer ${userToken}`
+            },
+            
+        });
+        
+        console.log('Response:', response.data);
+        console.log(response.status)
+        if(response.data.message==="Logged out successfully.")
+            setUserToken(null)
+        
+    } catch (error) {
+        console.error('Error:', error.response ? error.response.data : error.message);
+        
+    }
+    }
   return (
     <>
     {/* <Header /> */}
       <div className='flex flex-col h-full'>
-        <div className="flex-1 overflow-hidden profileImg min-h-[300px]" >
-          <img src="/imgs/profileImg.png" alt="Seaview" className='h-full w-full object-cover' loading='lazy'/>
+        <div className="flex-1 overflow-hidden profileImg min-h-[250px]" >
+          <img src="/imgs/profileImg.png" alt="Seaview" className='min-h-[250px] w-full object-cover' loading='lazy'/>
         </div>
         <div className="flex-1 profileInfo flex flex-row h-fit w-full overflow-visible">
           <div className='flex flex-row max-md:flex-col 2xl:w-[630px] md:w-[400px] sm:w-[200px] w-[120px] bg-[url(/imgs/profileBG.png)] bg-no-repeat bg-left-bottom'>
@@ -68,7 +93,9 @@ const Profile = () => {
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 '/>
         <div className="modle-button flex flex-row justify-center py-2 text-zn-red">
-          <button className=' flex-1 zn-body-2  text-zn-red py-2 text-center border-r-2' onClick={()=>navigate('/')}>
+          <button className=' flex-1 zn-body-2  text-zn-red py-2 text-center border-r-2' onClick={()=>{
+            LogOutApi()
+            }}>
             YES
           </button>
           <button className='flex-1 zn-body-2  text-zn-green text-center' onClick={()=>setLogMessage(false)}>

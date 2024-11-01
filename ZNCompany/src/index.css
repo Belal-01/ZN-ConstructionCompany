@@ -11,7 +11,7 @@ html{
   @apply w-full h-full ;
 }
 body{
-  @apply w-full h-full bg-zn-white sm:pt-[65px] pt-[52px];
+  @apply w-full h-full bg-zn-white sm:pt-[65px] pt-[65px];
 
 }
 .nightbg{
@@ -134,14 +134,14 @@ display: none;
    
  }
  .zn-input-field{
-  @apply rounded-md h-9 py-0 w-full px-8 2xl:pl-10 bg-zn-gray-box border border-zn-black;
+  @apply rounded-md 2xl:h-14 h-9 py-0 w-full px-8 2xl:pl-10 bg-zn-gray-box border border-zn-black;
  }
  .zn-input-field::placeholder{
   @apply zn-body-2  ;
 
  }
  .zn-button{
-  @apply md:py-2 py-3 px-8 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
+  @apply 2xl:py-4 md:py-3 py-3 xl:px-14 px-8 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4;
  }
  .modle,.overly{
   @apply fixed top-0 left-0 right-0 bottom-0 z-30;
