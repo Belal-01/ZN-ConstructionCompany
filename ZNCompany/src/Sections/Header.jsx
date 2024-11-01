@@ -160,7 +160,7 @@ const Header = () => {
     if(moodModle){
     gsap.to('.moodeModle',{
       minHeight:'90px',
-      duration:1
+      duration:.5
     })
     gsap.to('.modeMenu',{
       opacity:1,
@@ -206,7 +206,10 @@ const Header = () => {
           </div>}
     </div>
       <div className="menu flex flex-row items-center gap-x-2 relative">
-        <span className='flex flex-col justify-between cursor-pointer min-h-6' onClick={()=>setShowMenu(prev=>!prev)}> 
+        <span className='flex flex-col justify-between cursor-pointer min-h-6' onClick={()=>{setShowMenu(prev=>!prev)
+          setShowSubMenu(false)
+          setLanguagesMenu(false)
+        }}> 
           <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full topMenu-icon')}></div>
           <div className={classNames('sm:w-6 w-5 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
           <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full bottomMenu-icon')}></div>
