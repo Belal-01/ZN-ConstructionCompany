@@ -39,11 +39,12 @@ const LogInForm = ({routPath}) => {
       console.log(response.data.access_token) 
       auth.logIn(response.data.access_token)
       navigate(routPath,{state:{token:response.data.access_token}})
+      if(auth.userToken1!==null)
         addNotification({
           title: 'ZN COMPANY ',
           subtitle: 'CONGRATES ✨',
           message: 'YOU HAVE LOGED IN SUCCESSFULLY',
-          theme: 'darkblue',
+          theme: 'blue',
           backgroundTop: 'green',
           duration:10000,
          

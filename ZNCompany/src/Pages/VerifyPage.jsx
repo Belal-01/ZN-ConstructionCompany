@@ -234,15 +234,15 @@ const resendCode = async(data,token)=>{
             });
             }else{
               navigate('/profilePage',{state:{token:userToken}})
-              addNotification({
-                title: 'ZN COMPANY ',
-                subtitle: 'CONGRATES ✨',
-                message: 'YOU HAVE SIGNED UP SUCCESSFULLY',
-                theme: 'darkblue',
-                backgroundTop: 'green',
-                duration:10000,
-               
-            });
+              if(auth.userToken!==null)
+                addNotification({
+                  title: 'ZN COMPANY ',
+                  subtitle: 'CONGRATES ✨',
+                  message: 'YOU HAVE SIGNED UP SUCCESSFULLY',
+                  theme: 'darkblue',
+                  backgroundTop: 'green',
+                  duration:10000,
+              });
             }
             }}>
            {t("CONTINUE")}
