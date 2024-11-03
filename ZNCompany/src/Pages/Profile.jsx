@@ -6,6 +6,7 @@ import { useStore } from '../store'
 import { useTranslation } from 'react-i18next'
 import Cookies from 'js-cookie'
 import axios from 'axios'
+import addNotification from 'react-push-notification'
 
 const Profile = () => {
   const [logMessage,setLogMessage] = useState(false)
@@ -36,8 +37,17 @@ const Profile = () => {
         
         console.log('Response:', response.data);
         console.log(response.status)
-        if(response.data.message==="Logged out successfully.")
-            setUserToken(null)
+        if(response.data.message==="Logged out successfully."){
+          setUserToken(null)
+          addNotification({
+            title: 'ZN COMPANY ',
+            message: 'YOU HAVE LOGED OUT OF YOUR ACCOUNT SUCCESSFULLY',
+            theme: 'darkblue',
+            backgroundTop: 'red',
+            duration:10000,
+           
+        });
+        }
         
     } catch (error) {
         console.error('Error:', error.response ? error.response.data : error.message);

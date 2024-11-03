@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useAuth } from '../Components/Auth';
 import { useStore } from '../store';
+import addNotification from 'react-push-notification';
 const VerifyPage = () => {
 const [erorrModle,setErorrModle] = useState(false);
 const [successModle,setSuccessModle] = useState(false)
@@ -211,19 +212,38 @@ const resendCode = async(data,token)=>{
       <div className="overly"></div>
       <div className="modle-content">
         <div className="modle-body">
-        <h1 className='zn-h-4-semiBold text-center py-5'>{t("SIGNED UP")}</h1>
+        <h1 className='zn-h-4-semiBold text-center py-5'>{userInfo.requestType==='verifyForgotPassword'?'Password Changed': t("SIGNED UP")}</h1>
         <div className="modle-body px-12 text-zn-gray-3">
         <p id='successModleMessage' className='zn-body-2 text-center'>
-          {userInfo.requestType==='verifyForgotPassword'?'password verifyed successful:': t("YOUR ACCOUNT SUCCESSFULLY VERIFIED")}
+          {userInfo.requestType==='verifyForgotPassword'?'Your password verifyed successfull y:': t("YOUR ACCOUNT SUCCESSFULLY VERIFIED")}
          </p>
         </div>
         <hr className=' bg-zn-gray-3 opacity-50 h-0.5 my-4'/>
         <div className="modle-button flex flex-row justify-center text-zn-green">
           <button className='zn-body-2 mb-2 ' onClick={()=>{
-            if(userInfo.requestType==='verifyForgotPassword')
+            if(userInfo.requestType==='verifyForgotPassword'){
               navigate('/',{replace:true})
-            else
+              addNotification({
+                title: 'ZN COMPANY ',
+                subtitle: 'CONGRATES ✨',
+                message: 'YOUR PASSWORD HAS CHANGED SUCCESSFULLY LOG IN WITH THE NEW PASSWORD',
+                theme: 'darkblue',
+                backgroundTop: 'green',
+                duration:10000,
+               
+            });
+            }else{
               navigate('/profilePage',{state:{token:userToken}})
+              addNotification({
+                title: 'ZN COMPANY ',
+                subtitle: 'CONGRATES ✨',
+                message: 'YOU HAVE SIGNED UP SUCCESSFULLY',
+                theme: 'darkblue',
+                backgroundTop: 'green',
+                duration:10000,
+               
+            });
+            }
             }}>
            {t("CONTINUE")}
           </button>

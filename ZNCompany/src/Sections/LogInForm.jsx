@@ -10,6 +10,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useAuth } from '../Components/Auth';
 import { useStore } from '../store';
+import addNotification from 'react-push-notification';
 
 const LogInForm = ({routPath}) => {
   const [erorrModle,setErorrModle] = useState(false);
@@ -38,6 +39,16 @@ const LogInForm = ({routPath}) => {
       console.log(response.data.access_token) 
       auth.logIn(response.data.access_token)
       navigate(routPath,{state:{token:response.data.access_token}})
+        addNotification({
+          title: 'ZN COMPANY ',
+          subtitle: 'CONGRATES ✨',
+          message: 'YOU HAVE LOGED IN SUCCESSFULLY',
+          theme: 'darkblue',
+          backgroundTop: 'green',
+          duration:10000,
+         
+      });
+      
   } catch (error) {
       console.error('Error:', error.response ? error.response.data : error.message);
       setWarrningModle(true) 
