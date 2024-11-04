@@ -75,7 +75,7 @@ const LogInForm = ({routPath}) => {
 
   return (
     <>
-    <section className="2xl:py-[150px] xl:py-[80px] md:py-[60px] py-[40px] h-full   ">
+    <section className="2xl:py-[150px] xl:py-[60px] md:py-[60px] py-[40px] h-full   ">
       <div className='max-md:absolute top-12 left-0 right-0 max-md:h-[300px] z-20 flex justify-center items-center'>
         <div className='max-md:flex max-md:flex-col max-md:justify-center max-md:w-[250px] max-md:h-[250px] max-md:rounded-full max-md:bg-zn-gray-box  text-[64px] z-10'>       
           <div className="flex flex-row justify-center md:py-5 max-md:pb-5 md:hidden">

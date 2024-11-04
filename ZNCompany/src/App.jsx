@@ -75,10 +75,10 @@ function App() {
             <Notifications position='top-left'/>
              <BrowserRouter>
               <AuthProvider>
-              <Header />
-        
-                <Routes>
-                
+              <RequerAuth>
+                 <Header />
+              </RequerAuth>
+                <Routes>               
                   <Route path='/' element={<LogInPage />} />
                   <Route path='/signInPage' element={<SignUpPage />}>
                     <Route index path='/signInPage/signInForm' element={<SignUpForm />} />

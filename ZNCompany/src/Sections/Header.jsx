@@ -173,7 +173,7 @@ const Header = () => {
 
   
   return (
-  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[70px] h-[65px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
+  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[60px] h-[60px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
     <div className="logo border-r-2 border-l-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
       <img src="imgs/logo.png" alt="logo" className='w-[50px]'/>
       <p className='zn-body-2 text-zn-white max-sm:hidden'>{t("COMPANYFIRSTNAME")}

@@ -59,7 +59,7 @@ const ChangePassWordForm = () => {
     <h1 className={`zn-h-3-bold py-[35px] text-center ${darkMood?'text-white':''}`}>
       {t("CHANGEPASSWORD")}
     </h1>
-    <form action="" id='changePasswordForm' className='2xl:w-[478px] xl:w-[350px] lg:w-[267px] w-[265px] m-auto flex flex-col xl:gap-y-5'>
+    <form action="" id='changePasswordForm' className='2xl:w-[478px] xl:w-[350px] lg:w-[267px] w-[265px] m-auto flex flex-col 2xl:gap-y-5'>
       <div className="flex flex-col gap-y-2.5 py-2.5">
         <label htmlFor="email" className={`zn-body-2 ${darkMood?'text-white':''}`}>{t("EMAIL ADDRESS")}</label>
         <div className="relative">

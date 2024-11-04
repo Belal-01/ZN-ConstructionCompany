@@ -11,7 +11,7 @@ html{
   @apply w-full h-full ;
 }
 body{
-  @apply w-full h-full bg-zn-white sm:pt-[65px] pt-[65px];
+  @apply w-full h-full bg-zn-white sm:pt-[60px] pt-[60px];
 
 }
 .nightbg{

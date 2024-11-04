@@ -95,7 +95,7 @@ const SignUpForm = () => {
          {t("PROFILE PICTURE")}
       </h2>
       <div className="flex flex-row justify-center py-5">
-        <div className="profile xl:w-[180px] xl:h-[180px] w-[130px] h-[130px] rounded-full bg-zn-gray-box relative flex flex-row items-center justify-center">
+        <div className="profile xl:w-[140px] xl:h-[140px] w-[130px] h-[130px] rounded-full bg-zn-gray-box relative flex flex-row items-center justify-center">
           <IoPersonOutline className='text-[64px] text-zn-gray-2' />
           <IoAddSharp  className='bg-zn-green w-5 h-6 rounded-sm cursor-pointer text-white outline-2 outline-dotted outline-zn-black outline-offset-1 absolute bottom-0 right-1'/>
           
