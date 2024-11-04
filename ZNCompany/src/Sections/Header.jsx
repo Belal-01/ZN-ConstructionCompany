@@ -259,27 +259,32 @@ const Header = () => {
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('ar')
                       setShowMenu(false)
-                      location.href = location.href;
+                      window.document.dir = i18n.dir()
+                      
                       }}><span >العربية</span></li>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('en')
                       setShowMenu(false)
-                      location.href = location.href;
+                      window.document.dir = i18n.dir()
+                      
                       }}><span>ENGLISH</span></li>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('de')
                       setShowMenu(false)
-                      location.href = location.href;
+                      window.document.dir = i18n.dir()
+                      
                       }}><span>DEUTSCH</span></li>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('fr')
                       setShowMenu(false)
-                      location.href = location.href;
+                      window.document.dir = i18n.dir()
+                      
                       }}><span>FRANÇAIS</span></li>
                       <li className='py-2 z-body-1 pl-2 cursor-pointer hover:bg-zn-green-light' onClick={()=>{
                       i18n.changeLanguage('zh')
                       setShowMenu(false)
-                      location.href = location.href;
+                      window.document.dir = i18n.dir()
+                      
                       }}><span>中文</span></li>
                     </ul>
                 </div>
