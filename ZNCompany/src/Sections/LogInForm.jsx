@@ -42,7 +42,7 @@ const LogInForm = ({routPath}) => {
       navigate(routPath,{state:{token:response.data.access_token}})
       if(auth.userToken1!==null)
         addNotification({
-          title:t("COMPANYFIRSTNAME") + t("COMPANYSECONDNAME"),
+          title:t("COMPANYFIRSTNAME") + t("COMPANY"),
           subtitle: `${t("WELCOME")} ${userInfo.email} ✨`,
           message: t("YOU HAVE LOGED IN SUCCESSFULLY"),
           theme: 'blue',
