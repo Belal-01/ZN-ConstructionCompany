@@ -37,12 +37,13 @@ const LogInForm = ({routPath}) => {
       console.log('Response:', response.data);
       console.log(response.status)
       console.log(response.data.access_token) 
-      auth.logIn(response.data.access_token)
+      const userInfo = JSON.parse(data)
+      auth.logIn(response.data.access_token,userInfo.email)
       navigate(routPath,{state:{token:response.data.access_token}})
       if(auth.userToken1!==null)
         addNotification({
           title: 'ZN COMPANY ',
-          subtitle: 'CONGRATES ✨',
+          subtitle: `${t("WELCOME")} ${userInfo.email} ✨`,
           message: 'YOU HAVE LOGED IN SUCCESSFULLY',
           theme: 'blue',
           backgroundTop: 'green',
@@ -63,8 +64,8 @@ const LogInForm = ({routPath}) => {
       e.preventDefault()
       const email = document.getElementById('email').value
       const password = document.getElementById('password').value
-    const data = JSON.stringify({email,password})
-    console.log(data)
+     const data = JSON.stringify({email,password})
+
     logInApi(data)     
     // navigate('/profilePage')
     })

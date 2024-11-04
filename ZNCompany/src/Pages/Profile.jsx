@@ -15,13 +15,14 @@ const Profile = () => {
   const LogToken = location.state || ""
   const setUserToken = useStore((store)=>store.setUserToken)
   const userToken = useStore((store)=>store.userToken)
+  const userEmail = useStore((store)=>store.userEmail)
   useGSAP(()=>{
     modleAnimation('.modle-content','.modle-body','340px')
   },[logMessage])
+
   const { t } = useTranslation();
   const lan = Cookies.get('i18next')|| "en"
     const navigate = useNavigate();
-    
     const LogOutApi = async()=>{
       console.log(userToken)
 
@@ -41,6 +42,7 @@ const Profile = () => {
           setUserToken(null)
           addNotification({
             title: 'ZN COMPANY ',
+            subtitle:`${t("GOOD BYE") +" "+ userEmail} 😢`,
             message: 'YOU HAVE LOGED OUT OF YOUR ACCOUNT SUCCESSFULLY',
             theme: 'darkblue',
             backgroundTop: 'red',

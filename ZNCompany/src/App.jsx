@@ -37,7 +37,7 @@ i18n
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-    fallbackLng: "en",
+    fallbackLng: "ar",
     detection :{
       order: [
         'cookie', 
@@ -59,7 +59,7 @@ i18n
 
 
 function App() {
-  const { t } = useTranslation();
+
   const lan = Cookies.get('i18next')|| "en"
 
  useEffect(()=>{

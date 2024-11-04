@@ -8,6 +8,7 @@ export const AuthProvider = ({children}) => {
  
   const userToken = useStore((store)=>store.userToken)
   const setUserToken = useStore((store)=>store.setUserToken)
+  const setUserEmail = useStore((store)=>store.setUserEmail)
 
   const LoadTokenFromStorage = ()=>{
    console.log(userToken)
@@ -17,11 +18,14 @@ export const AuthProvider = ({children}) => {
   // const Token = JSON.parse(localStorage.getItem('authToken'))
 
 
-  const logIn = (logInToken)=>{
+  const logIn = (logInToken ,userEmail)=>{
     setUserToken(logInToken)
+    setUserEmail(userEmail)
   }
-  const signUp = (signUpToken)=>{
+  const signUp = (signUpToken,userEmail)=>{
     setUserToken(signUpToken)
+    setUserEmail(userEmail)
+
   }
   return (
     <div className='h-full'>

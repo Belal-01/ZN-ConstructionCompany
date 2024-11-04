@@ -18,6 +18,8 @@ const userInfo = location.state ||''
 const auth = useAuth()
 const userToken = useStore((store)=>store.userToken)
 const {t} = useTranslation();
+const setUserEmail = useStore((store)=>store.setUserEmail)
+const userEmail = useStore((store)=>store.userEmail)
 
 const navigate = useNavigate();
 
@@ -33,8 +35,8 @@ const verifyRegisterApi = async(data)=>{
     if(response.data.message==="Email verified successfully"){
       console.log('Response:', response.data);
       console.log(response.status)
-      auth.signUp(response.data.token)
-   
+      const userInfo = JSON.parse(data)
+      auth.signUp(response.data.token,userInfo.email)
       setSuccessModle(true)
     }
 } catch (error) {
@@ -58,9 +60,9 @@ const ResetNewPassword = async(data,token)=>{
       console.log(response)
       console.log('Response:', response.data.token);
       console.log(response.status)
+      setUserEmail(data.email)
       setSuccessModle(true)
-      
-      
+       
     }
 } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message);
@@ -126,7 +128,6 @@ const resendCode = async(data,token)=>{
         email:userInfo.email,
         code:code1+code2+code3+code4+code5+code6
       }
-      
       
       if(userInfo.requestType==='verifyForgotPassword'){
         verifyForgotPassApi(data)      
@@ -225,7 +226,7 @@ const resendCode = async(data,token)=>{
               navigate('/',{replace:true})
               addNotification({
                 title: 'ZN COMPANY ',
-                subtitle: 'CONGRATES ✨',
+                subtitle: `CONGRATES ${userEmail}✨`,
                 message: 'YOUR PASSWORD HAS CHANGED SUCCESSFULLY LOG IN WITH THE NEW PASSWORD',
                 theme: 'darkblue',
                 backgroundTop: 'green',
@@ -237,7 +238,7 @@ const resendCode = async(data,token)=>{
               if(auth.userToken!==null)
                 addNotification({
                   title: 'ZN COMPANY ',
-                  subtitle: 'CONGRATES ✨',
+                  subtitle: `${t("WELCOME")} ${userEmail} ✨`,
                   message: 'YOU HAVE SIGNED UP SUCCESSFULLY',
                   theme: 'darkblue',
                   backgroundTop: 'green',
