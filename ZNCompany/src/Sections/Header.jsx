@@ -203,7 +203,7 @@ const Header = () => {
     </div>
     <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3 max-sm:px-2">
     <div className="flex-1 max-w-[200px] relative">
-          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-full pl-6 2xl:pl-10 bg-zn-white border border-zn-black relative z-20' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
+          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-full pl-6 pr-2 2xl:pl-10 bg-zn-white border border-zn-black relative z-20' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
           <IoSearch className='absolute top-1.5 left-1.5 z-30' />
           {searchModle&&<div className='sm:hidden fixed top-0 left-0 right-0 bottom-0  z-0' onClick={()=>setSearchModle(false)}></div>}
         {/* { searchModle&& <div className={`searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] ${lan==='ar'?'-right-[60px]':'-left-[60px]'} w-0 sm:hidden border rounded-md`}>
