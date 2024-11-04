@@ -225,9 +225,9 @@ const resendCode = async(data,token)=>{
             if(userInfo.requestType==='verifyForgotPassword'){
               navigate('/',{replace:true})
               addNotification({
-                title: 'ZN COMPANY ',
-                subtitle: `CONGRATES ${userEmail}✨`,
-                message: 'YOUR PASSWORD HAS CHANGED SUCCESSFULLY LOG IN WITH THE NEW PASSWORD',
+                title: t("COMPANYFIRSTNAME") + t("COMPANYSECONDNAME"),
+                subtitle: `${t("CONGRATES")} ${userEmail}✨`,
+                message: t("YOUR PASSWORD HAS CHANGED SUCCESSFULLY LOG IN WITH THE NEW PASSWORD"),
                 theme: 'darkblue',
                 backgroundTop: 'green',
                 duration:10000,
@@ -237,9 +237,9 @@ const resendCode = async(data,token)=>{
               navigate('/profilePage',{state:{token:userToken}})
               if(auth.userToken!==null)
                 addNotification({
-                  title: 'ZN COMPANY ',
+                  title: t("COMPANYFIRSTNAME") + t("COMPANYSECONDNAME"),
                   subtitle: `${t("WELCOME")} ${userEmail} ✨`,
-                  message: 'YOU HAVE SIGNED UP SUCCESSFULLY',
+                  message: t("YOU HAVE SIGNED UP SUCCESSFULLY"),
                   theme: 'darkblue',
                   backgroundTop: 'green',
                   duration:10000,

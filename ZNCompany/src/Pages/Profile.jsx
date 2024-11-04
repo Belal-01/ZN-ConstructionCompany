@@ -41,9 +41,9 @@ const Profile = () => {
         if(response.data.message==="Logged out successfully."){
           setUserToken(null)
           addNotification({
-            title: 'ZN COMPANY ',
-            subtitle:`${t("GOOD BYE") +" "+ userEmail} 😢`,
-            message: 'YOU HAVE LOGED OUT OF YOUR ACCOUNT SUCCESSFULLY',
+            title: t("COMPANYFIRSTNAME") + t("COMPANYSECONDNAME"),
+            subtitle:`${t("GOODBYE") +" "+ userEmail} 😢`,
+            message: t("YOU HAVE LOGGED OUT OF YOUR ACCOUNT SUCCESSFULLY"),
             theme: 'darkblue',
             backgroundTop: 'red',
             duration:10000,
@@ -84,9 +84,9 @@ const Profile = () => {
           </div>
           <div className='sm:flex-auto  md:bg-zn-black max-md:lg-zn-white max-md:pb-10 md:pl-20 sm:pl-10 pl-4 md:pr-16 relative'>
           <div className="info max-md:pt-[100px] mb-6">
-              <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} py-10`}>BILAL MUSTAFA</h2>
+              <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} py-10`}>{userEmail}</h2>
               <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>SYRIA-DAMASCUS</h2>
-              <p className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>belalkhobieh343@gmail.com</p>
+              <p className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>{userEmail}</p>
               <h2 className={`zn-body-1-bold text-zn-white ${nightMood?'max-md:text-zn-white':'max-md:text-zn-black'} pb-10`}>+963-000-000-000</h2>
           </div>
             <button className={`md:py-2 py-3 px-9 rounded-md absolute bottom-2 ${lan==='ar'?'sm:left-8 left-0':'sm:right-8 right-0'}  border border-zn-black bg-zn-red zn-body-2-bold my-4`} onClick={()=>setLogMessage(true)}>

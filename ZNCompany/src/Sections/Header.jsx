@@ -22,11 +22,11 @@ const Header = () => {
   const [moodModle,setMoodModle] = useState(false)
   const [languagesMenu,setLanguagesMenu] = useState(false)
   const [searchModle,setSearchModle] = useState(false)
+  const [smallScr,setSmallScr] = useState(false)
   const [navLinks,setNavLinks] = useState(JSON.parse(localStorage.getItem('navLinks'))||{
     home:false,
     about:false,
     projects:false
-
   })
   
   const nightMood = useStore((store)=>store.darkMood)
@@ -42,6 +42,14 @@ const Header = () => {
       document.body.classList.remove('nightbg')
 
   },[nightMood])
+  useEffect(()=>{
+    window.addEventListener('resize',()=>{
+     if(window.innerWidth<=640)
+      setSmallScr(true)
+    else
+      setSmallScr(false)
+    })
+  },[])
   useGSAP(()=>{
     if(showSubMenu)
     gsap.to('.menuArrow',{
@@ -173,7 +181,7 @@ const Header = () => {
 
   
   return (
-  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[60px] h-[60px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
+  <header className='fixed flex flex-row justify-between items-center top-0 left-0 right-0 sm:h-[65px] h-[60px] bg-gradient-to-r from-zn-blue to-zn-blue-light z-10'>
     <div className="logo border-r-2 border-l-2 flex flex-row sm:justify-between justify-center max-sm:min-w-[60px] items-center gap-x-1 sm:px-4">
       <img src="imgs/logo.png" alt="logo" className='w-[50px]'/>
       <p className='zn-body-2 text-zn-white max-sm:hidden'>{t("COMPANYFIRSTNAME")}
@@ -193,19 +201,19 @@ const Header = () => {
       </NavLink>
 
     </div>
-    <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3">
-    <div className="relative">
-          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-7 pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
-          <IoSearch className='absolute top-1.5 left-1.5 ' />
-
-        { searchModle&& <div className={`searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] ${lan==='ar'?'-right-[60px]':'-left-[60px]'} w-0 sm:hidden border rounded-md`}>
+    <div className="right-section  flex-auto flex flex-row gap-x-2 justify-around items-center w-[400px] max-md:px-3 max-sm:px-2">
+    <div className="flex-1 max-w-[200px] relative">
+          <input type="search" id='search' className=' rounded-md h-7 py-0 sm:w-full w-full pl-6 2xl:pl-10 bg-zn-white border border-zn-black relative z-20' placeholder='' onClick={()=>setSearchModle(prev=>!prev)}/>
+          <IoSearch className='absolute top-1.5 left-1.5 z-30' />
+          {searchModle&&<div className='sm:hidden fixed top-0 left-0 right-0 bottom-0  z-0' onClick={()=>setSearchModle(false)}></div>}
+        {/* { searchModle&& <div className={`searchModle absolute bg-zn-white p-2 top-[60px] -left-[60px] ${lan==='ar'?'-right-[60px]':'-left-[60px]'} w-0 sm:hidden border rounded-md`}>
           <div className="relative w-full">
           <input type="search" id='search' className=' rounded-md h-7 py-0 w-full pl-6 2xl:pl-10 bg-zn-white border border-zn-black ' placeholder=''/>
           <IoSearch className='absolute top-1.5 left-1.5 '/>
           </div>
-          </div>}
+          </div>} */}
     </div>
-      <div className="menu flex flex-row items-center gap-x-2 relative">
+      <div className=" menu flex flex-row items-center gap-x-2 relative">
         <span className='flex flex-col justify-between cursor-pointer min-h-6' onClick={()=>{setShowMenu(prev=>!prev)
           setShowSubMenu(false)
           setLanguagesMenu(false)
@@ -214,7 +222,7 @@ const Header = () => {
           <div className={classNames('sm:w-6 w-5 sm:h-[4px] h-[3px] bg-zn-white rounded-full ',{'hidden':showMenu})}></div>
           <div className={classNames('sm:w-10 w-8 sm:h-[4px] h-[3px] bg-zn-white rounded-full bottomMenu-icon')}></div>
         </span>
-        <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>{t("MENU")}</span>
+        <span className='zn-body-0-bold text-zn-white cursor-pointer' onClick={()=>setShowMenu(prev=>!prev)}>{(smallScr&&searchModle)?'':t("MENU")}</span>
        
         <div className={`bg-zn-white  ${showMenu&&"border"} border-black absolute top-[60px] -right-16 rounded-xl  menu-container ${showMenu&&"menu-container-show"} overflow-y-scroll shadow-lg z-50`}>
           <ul className=' py-4 px-2 2xl:w-[435px] w-[240px]'>
@@ -298,9 +306,9 @@ const Header = () => {
           </ul>
         </div>}
       </div>
-      <div className="booking">
-      <button className='md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] w-[90px] rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4'>
-        {t("BOOKNOW")}
+      <div className=" booking">
+      <button className='md:py-2 py-3 lg:w-[160px] md:w-[140px] sm:w-[120px] px-2 rounded-md border border-zn-black bg-zn-green zn-body-2-bold my-4'>
+      {(smallScr&&searchModle)?t("BOOK"):t("BOOKNOW")}
       </button>
       </div>
     </div>

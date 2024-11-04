@@ -8,6 +8,7 @@
   "MAINMENU": "主菜单",
   "LANGUAGES": "语言",
   "BOOKNOW": "立即预订",
+  "BOOK":"立即",
   "LANDSCAPING": "园艺",
   "DECKING": "甲板",
   "GARDENING": "园艺",
@@ -119,5 +120,11 @@
   "ENGLISH": "英语",
   "FRENCH": "法语",
   "DUETCH": "德语",
-  "CHINES": "中文"
+  "CHINES": "中文",
+  "GOODBYE": "再见",
+  "YOU HAVE LOGGED OUT OF YOUR ACCOUNT SUCCESSFULLY": "您已成功退出您的帐户",
+  "YOU HAVE LOGED IN SUCCESSFULLY": "您已成功登录",
+  "CONGRATES": "恭喜 ✨",
+  "YOUR PASSWORD HAS CHANGED SUCCESSFULLY LOG IN WITH THE NEW PASSWORD": "您的密码已成功更改，请使用新密码登录",
+  "YOU HAVE SIGNED UP SUCCESSFULLY": "您已成功注册"
 }
