@@ -74,11 +74,11 @@ function App() {
           <div className="app">
             <Notifications position='top-left'/>
              <BrowserRouter>
-              <AuthProvider>
-              <RequerAuth>
+              {/* <AuthProvider> */}
+              {/* <RequerAuth> */}
                  <Header />
-              </RequerAuth>
-                <Routes>               
+              {/* </RequerAuth> */}
+                {/* <Routes>               
                   <Route path='/' element={<LogInPage />} />
                   <Route path='/signInPage' element={<SignUpPage />}>
                     <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
@@ -102,9 +102,43 @@ function App() {
                     <RequerAuth>
                       <ProductInfo />
                     </RequerAuth>} />          
-                </Routes>
+                </Routes> */}
+
             
-              </AuthProvider>
+              {/* </AuthProvider> */}
+
+
+
+              {/* without auth  */}
+
+              <Routes>               
+                  <Route path='/' element={<LogInPage />} />
+                  <Route path='/signInPage' element={<SignUpPage />}>
+                    <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
+                    <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />
+                  </Route>
+                  <Route path='/verifyPage' element={<VerifyPage />}/>
+                  <Route path='/profilePage' element={
+                    
+                      <Profile />
+                    
+                    }/>
+                  <Route path='/landingPage' element={
+                    
+                    <LandingPage />
+                    }/>
+                  <Route path='/viewAllPage' element={
+                    
+                    <ViewAllPage />
+                    }/>
+                  <Route path='/productInfo' element = {
+                    
+                      <ProductInfo />
+                    } />          
+                </Routes>
+
+
+
             </BrowserRouter>
             
           </div>
