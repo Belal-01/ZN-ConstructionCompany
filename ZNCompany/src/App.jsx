@@ -112,13 +112,13 @@ function App() {
               {/* without auth  */}
 
               <Routes>               
-                  <Route path='/' element={<LogInPage />} />
+                  <Route path='/logInPage' element={<LogInPage />} />
                   <Route path='/signInPage' element={<SignUpPage />}>
                     <Route index path='/signInPage/signInForm' element={<SignUpForm />} />
                     <Route path='/signInPage/changePasswordForm' element={<ChangePassWordForm />} />
                   </Route>
                   <Route path='/verifyPage' element={<VerifyPage />}/>
-                  <Route path='/profilePage' element={
+                  <Route path='/' element={
                     
                       <Profile />
                     
